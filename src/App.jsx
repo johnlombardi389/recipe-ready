@@ -4,15 +4,16 @@ import GlobalStyles from "./components/GlobalStyle";
 // Components
 import Nav from "./components/Nav";
 // Pages
+import Recipes from "./pages/Recipes";
 
 function App() {
   return (
     <>
       <GlobalStyles />
       <Nav />
-      <div>
-        <h1>Hello</h1>
-      </div>
+      <Routes>
+        <Route path="/" element={<Recipes />} />
+      </Routes>
     </>
   );
 }
