@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+// Style
+import styled from "styled-components";
 // Components
 import Ingredient from "../components/Ingredient";
 
@@ -37,7 +39,7 @@ const Pantry = () => {
       <h1>This is the pantry page</h1>
 
       {ingredients ? (
-        <>
+        <IngredientsGrid>
           {ingredients.map((ingredient) => {
             return (
               <Ingredient
@@ -49,7 +51,7 @@ const Pantry = () => {
               />
             );
           })}
-        </>
+        </IngredientsGrid>
       ) : (
         <p>There are no ingredients</p>
       )}
@@ -58,3 +60,9 @@ const Pantry = () => {
 };
 
 export default Pantry;
+
+const IngredientsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+`;
