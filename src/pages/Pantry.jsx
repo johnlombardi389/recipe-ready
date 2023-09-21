@@ -5,10 +5,30 @@ const Pantry = () => {
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:8000/api/ingredients").then((response) => {
-      setIngredients(response.data.ingredients);
-    });
+    fetchIngredients();
   }, []);
+
+  const fetchIngredients = () => {
+    axios("http://localhost:8000/api/ingredients/")
+      .then((response) => {
+        setIngredients(response.data.ingredients);
+      })
+      .catch((error) => {
+        console.error("Error fetching ingredients:", error);
+      });
+  };
+
+  const deleteIngredients = (id) => {
+    axios
+      .delete(`http://localhost:8000/api/ingredients/${id}`)
+      .then(() => {
+        // After successful deletion, refresh the ingredients list
+        fetchIngredients();
+      })
+      .catch((error) => {
+        console.error("Error deleting ingredient:", error);
+      });
+  };
 
   return (
     <>
@@ -17,7 +37,15 @@ const Pantry = () => {
       {ingredients ? (
         <ul>
           {ingredients.map((ingredient) => {
-            return <p key={ingredient.id}>{ingredient.name}</p>;
+            return (
+              <div key={ingredient.id}>
+                <p>{ingredient.name}</p>
+                <p>{ingredient.purchase_date}</p>
+                <button onClick={() => deleteIngredients(ingredient.id)}>
+                  Delete
+                </button>
+              </div>
+            );
           })}
         </ul>
       ) : (
