@@ -5,6 +5,7 @@ import GlobalStyles from "./components/GlobalStyle";
 import Nav from "./components/Nav";
 // Pages
 import Recipes from "./pages/Recipes";
+import Pantry from "./pages/Pantry";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Recipes />} />
+        <Route path="/pantry" element={<Pantry />} />
       </Routes>
     </>
   );
