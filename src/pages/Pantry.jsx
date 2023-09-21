@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+// Components
+import Ingredient from "../components/Ingredient";
 
 const Pantry = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -35,19 +37,19 @@ const Pantry = () => {
       <h1>This is the pantry page</h1>
 
       {ingredients ? (
-        <ul>
+        <>
           {ingredients.map((ingredient) => {
             return (
-              <div key={ingredient.id}>
-                <p>{ingredient.name}</p>
-                <p>{ingredient.purchase_date}</p>
-                <button onClick={() => deleteIngredients(ingredient.id)}>
-                  Delete
-                </button>
-              </div>
+              <Ingredient
+                key={ingredient.id}
+                id={ingredient.id}
+                name={ingredient.name}
+                purchase_date={ingredient.purchase_date}
+                deleteIngredients={deleteIngredients}
+              />
             );
           })}
-        </ul>
+        </>
       ) : (
         <p>There are no ingredients</p>
       )}
