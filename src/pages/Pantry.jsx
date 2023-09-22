@@ -35,6 +35,28 @@ const Pantry = () => {
       });
   };
 
+  const newIngredient = (name) => {
+    addIngredient(name);
+  };
+
+  const addIngredient = (newIngredient) => {
+    const newData = { name: newIngredient };
+
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    axios
+      .post("http://localhost:8000/api/ingredients/", newData, headers)
+      .then((response) => {
+        console.log(response.data); // Log the response data
+        fetchIngredients(); // Refresh the ingredient list
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <StyledTitleSection>
@@ -42,7 +64,7 @@ const Pantry = () => {
           <h2>Your Virtual Pantry</h2>
         </div>
         <div className="add-butt">
-          <IngredientModal />
+          <IngredientModal newIngredient={newIngredient} />
         </div>
       </StyledTitleSection>
 

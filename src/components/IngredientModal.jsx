@@ -2,8 +2,9 @@ import { useState } from "react";
 // Style
 import styled from "styled-components";
 
-const IngredientModal = () => {
+const IngredientModal = ({ newIngredient }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [name, setName] = useState("");
 
   const openModal = () => {
     setIsOpen(true);
@@ -11,6 +12,13 @@ const IngredientModal = () => {
 
   const closeModal = () => {
     setIsOpen(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    newIngredient(name);
+    setName("");
+    closeModal();
   };
 
   return (
@@ -22,11 +30,25 @@ const IngredientModal = () => {
           <div className="modal-content">
             <span className="close">&times;</span>
             <h2>Add Ingredient</h2>
-            <form>
-              <label>Name:</label>
-              <input type="text" name="name" placeholder="Ingredient" />
+            <form onSubmit={handleSubmit} id="modal">
+              <div>
+                <div>
+                  <label htmlFor="name">Name</label>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Ingredient"
+                    value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
             </form>
-            <button onClick={closeModal}>Submit</button>
+            <button form="modal">Submit</button>
           </div>
         </StyledModal>
       ) : null}
