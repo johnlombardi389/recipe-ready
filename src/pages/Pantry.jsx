@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 // Components
 import Ingredient from "../components/Ingredient";
+import IngredientModal from "../components/IngredientModal";
 
 const Pantry = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -36,7 +37,14 @@ const Pantry = () => {
 
   return (
     <>
-      <h1>This is the pantry page</h1>
+      <StyledTitleSection>
+        <div className="title">
+          <h2>Your Virtual Pantry</h2>
+        </div>
+        <div className="add-butt">
+          <IngredientModal />
+        </div>
+      </StyledTitleSection>
 
       {ingredients ? (
         <IngredientsGrid>
@@ -60,6 +68,12 @@ const Pantry = () => {
 };
 
 export default Pantry;
+
+const StyledTitleSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+`;
 
 const IngredientsGrid = styled.div`
   padding: 1rem;
