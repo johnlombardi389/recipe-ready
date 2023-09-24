@@ -1,7 +1,15 @@
+// Components
+import EditIngredientModal from "./EditIngredientMOdal";
 // Style
 import styled from "styled-components";
 
-const Ingredient = ({ id, name, purchase_date, deleteIngredients }) => {
+const Ingredient = ({
+  id,
+  name,
+  purchase_date,
+  deleteIngredients,
+  fetchIngredients,
+}) => {
   const handleDelete = () => {
     deleteIngredients(id);
   };
@@ -14,7 +22,13 @@ const Ingredient = ({ id, name, purchase_date, deleteIngredients }) => {
         </div>
         <div className="ing-butts">
           <button onClick={handleDelete}>Delete</button>
-          <button>Edit</button>
+          <EditIngredientModal
+            id={id}
+            ingName={name}
+            purchase_date={purchase_date}
+            deleteIngredients={deleteIngredients}
+            fetchIngredients={fetchIngredients}
+          />
         </div>
       </StyledIngredient>
     </>

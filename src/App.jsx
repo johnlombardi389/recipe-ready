@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import GlobalStyles from "./components/GlobalStyle";
 // Components
 import Nav from "./components/Nav";
+import EditIngredientModal from "./components/EditIngredientMOdal";
 // Pages
 import Recipes from "./pages/Recipes";
 import Pantry from "./pages/Pantry";

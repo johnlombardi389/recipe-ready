@@ -49,7 +49,6 @@ const Pantry = () => {
     axios
       .post("http://localhost:8000/api/ingredients/", newData, headers)
       .then((response) => {
-        console.log(response.data); // Log the response data
         fetchIngredients(); // Refresh the ingredient list
       })
       .catch((error) => {
@@ -78,6 +77,7 @@ const Pantry = () => {
                 name={ingredient.name}
                 purchase_date={ingredient.purchase_date}
                 deleteIngredients={deleteIngredients}
+                fetchIngredients={fetchIngredients}
               />
             );
           })}

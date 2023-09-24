@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 // Style
 import styled from "styled-components";
 
-const IngredientModal = ({ newIngredient }) => {
+const EditIngredientModal = ({
+  id,
+  ingName,
+  purchase_date,
+  deleteIngredients,
+  fetchIngredients,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState("");
+  const [name, setName] = useState(ingName);
 
   const openModal = () => {
     setIsOpen(true);
@@ -14,21 +21,33 @@ const IngredientModal = ({ newIngredient }) => {
     setIsOpen(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    newIngredient(name);
-    setName("");
+
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/api/ingredients/${id}/`,
+        { name }
+      );
+    } catch (error) {
+      console.error("Error updating ingredient", error);
+    }
+
+    fetchIngredients();
     closeModal();
   };
 
   return (
     <>
-      <StyledButton onClick={openModal}>+ Add Ingredient</StyledButton>
+      <StyledButton onClick={openModal}>Edit</StyledButton>
+
       {isOpen ? (
         <StyledModal>
           <div className="modal-content">
-            <span className="close">&times;</span>
-            <h2>Add Ingredient</h2>
+            <span className="close" onClick={closeModal}>
+              &times;
+            </span>
+            <h2>Edit Ingredient</h2>
             <form onSubmit={handleSubmit} id="modal">
               <div>
                 <div>
@@ -38,7 +57,6 @@ const IngredientModal = ({ newIngredient }) => {
                   <input
                     type="text"
                     id="name"
-                    placeholder="Ingredient"
                     value={name}
                     onChange={(e) => {
                       setName(e.target.value);
@@ -55,7 +73,7 @@ const IngredientModal = ({ newIngredient }) => {
   );
 };
 
-export default IngredientModal;
+export default EditIngredientModal;
 
 const StyledButton = styled.button`
   background-color: yellow;
