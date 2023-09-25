@@ -38,11 +38,46 @@ const Nav = () => {
         </NavInner>
         {extendNav && (
           <NavExtension>
-            <StyledExtendNavLink to={"/"}>Home</StyledExtendNavLink>
-            <StyledExtendNavLink to={"/pantry"}>Pantry</StyledExtendNavLink>
-            <StyledExtendNavLink to={"/pantry"}>Recipes</StyledExtendNavLink>
-            <StyledExtendNavLink to={"/pantry"}>Manager</StyledExtendNavLink>
-            <StyledExtendNavLink to={"/pantry"}>Profile</StyledExtendNavLink>
+            <StyledExtendNavLink
+              to={"/"}
+              onClick={() => {
+                setExtendNav(!extendNav);
+              }}
+            >
+              Home
+            </StyledExtendNavLink>
+            <StyledExtendNavLink
+              to={"/pantry"}
+              onClick={() => {
+                setExtendNav(!extendNav);
+              }}
+            >
+              Pantry
+            </StyledExtendNavLink>
+            <StyledExtendNavLink
+              to={"/pantry"}
+              onClick={() => {
+                setExtendNav(!extendNav);
+              }}
+            >
+              Recipes
+            </StyledExtendNavLink>
+            <StyledExtendNavLink
+              to={"/pantry"}
+              onClick={() => {
+                setExtendNav(!extendNav);
+              }}
+            >
+              Manager
+            </StyledExtendNavLink>
+            <StyledExtendNavLink
+              to={"/pantry"}
+              onClick={() => {
+                setExtendNav(!extendNav);
+              }}
+            >
+              Profile
+            </StyledExtendNavLink>
           </NavExtension>
         )}
       </StyledNav>
