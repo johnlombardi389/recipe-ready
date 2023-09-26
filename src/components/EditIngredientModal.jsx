@@ -91,6 +91,7 @@ const StyledButton = styled.button`
   background-color: lightblue;
   color: darkgreen;
   padding: 0.15rem 0.75rem;
+  cursor: pointer;
 `;
 
 const StyledModal = styled.div`
