@@ -44,11 +44,13 @@ const EditIngredientModal = ({
       {isOpen ? (
         <StyledModal>
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <h2>Edit Ingredient</h2>
-            <form onSubmit={handleSubmit} id="modal">
+            <div className="top-section">
+              <h2>Edit Ingredient</h2>
+              <span className="close" onClick={closeModal}>
+                &times;
+              </span>
+            </div>
+            <StyledForm onSubmit={handleSubmit} id="modal">
               <div>
                 <div>
                   <label htmlFor="name">Name</label>
@@ -64,8 +66,18 @@ const EditIngredientModal = ({
                   />
                 </div>
               </div>
-            </form>
-            <button form="modal">Submit</button>
+            </StyledForm>
+            <FormButtons>
+              <button>Delete</button>
+              <div className="edit-butts">
+                <button className="cancel-butt" onClick={closeModal}>
+                  Cancel
+                </button>
+                <button className="submit-butt" form="modal">
+                  Submit
+                </button>
+              </div>
+            </FormButtons>
           </div>
         </StyledModal>
       ) : null}
@@ -76,7 +88,9 @@ const EditIngredientModal = ({
 export default EditIngredientModal;
 
 const StyledButton = styled.button`
-  background-color: yellow;
+  background-color: lightblue;
+  color: darkgreen;
+  padding: 0.15rem 0.75rem;
 `;
 
 const StyledModal = styled.div`
@@ -93,8 +107,76 @@ const StyledModal = styled.div`
 
   .modal-content {
     background-color: #fff;
-    padding: 20px;
+    padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    .top-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+
+      h2 {
+        font-size: 2rem;
+        color: pink;
+      }
+
+      span {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .close {
+    cursor: pointer;
+  }
+`;
+
+const StyledForm = styled.form`
+  width: 75vw;
+
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f7f7f7;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+`;
+
+const FormButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  button {
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+  }
+
+  .cancel-butt {
+    background: none;
+  }
+
+  .submit-butt {
+    margin-left: 1rem;
+    background-color: pink;
   }
 `;
