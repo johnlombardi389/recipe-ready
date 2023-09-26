@@ -94,7 +94,7 @@ const StyledNav = styled.nav`
   margin-bottom: 1rem;
   z-index: 1000;
   width: 100%;
-  height: ${(props) => (props.extendNav ? "100vh" : "3.5rem")};
+  height: ${(props) => (props.extendNav ? "50vh" : "3.5rem")};
   background-color: pink;
   display: flex;
   flex-direction: column;
@@ -109,7 +109,6 @@ const StyledNav = styled.nav`
     justify-content: flex-start;
     align-items: center;
     padding-left: 1rem;
-    background-color: yellow;
 
     .logo {
       color: red;
@@ -124,7 +123,6 @@ const StyledNav = styled.nav`
     justify-content: flex-end;
     align-items: center;
     padding-right: 1rem;
-    background-color: green;
   }
 `;
 
@@ -156,8 +154,6 @@ const StyledExtendNavLink = styled(NavLink)`
 `;
 
 const Hamburger = styled.button`
-  width: 70px;
-  height: 50px;
   background: none;
   border: none;
   color: white;
