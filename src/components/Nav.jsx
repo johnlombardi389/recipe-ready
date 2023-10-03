@@ -24,8 +24,8 @@ const Nav = () => {
               <StyledNavLink to={"/"}>Home</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Recipes</StyledNavLink>
-              <StyledNavLink to={"/pantry"}>Manager</StyledNavLink>
-              <StyledNavLink to={"/pantry"}>Profile</StyledNavLink>
+              <StyledNavLink to={"/login"}>Login</StyledNavLink>
+              <StyledNavLink to={"/register"}>Register</StyledNavLink>
               <Hamburger
                 onClick={() => {
                   setExtendNav(!extendNav);

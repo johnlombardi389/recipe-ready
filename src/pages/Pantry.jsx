@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import axiosInstance from "../../axiosInstance";
 // Style
 import styled from "styled-components";
 // Components
@@ -14,24 +15,45 @@ const Pantry = () => {
   }, []);
 
   const fetchIngredients = () => {
-    axios("http://localhost:8000/api/ingredients/")
+    // axios("http://localhost:8000/api/ingredients/")
+    //   .then((response) => {
+    //     setIngredients(response.data.ingredients);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching ingredients:", error);
+    //   });
+
+    axiosInstance
+      .get("ingredients/")
       .then((response) => {
         setIngredients(response.data.ingredients);
       })
       .catch((error) => {
         console.error("Error fetching ingredients:", error);
+        console.log(error.response.data);
       });
   };
 
   const deleteIngredients = (id) => {
-    axios
-      .delete(`http://localhost:8000/api/ingredients/${id}`)
+    // axios
+    //   .delete(`http://localhost:8000/api/ingredients/${id}`)
+    //   .then(() => {
+    //     // After successful deletion, refresh the ingredients list
+    //     fetchIngredients();
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error deleting ingredient:", error);
+    //   });
+
+    axiosInstance
+      .delete(`ingredients/${id}`) // Use axiosInstance and remove the base URL
       .then(() => {
         // After successful deletion, refresh the ingredients list
         fetchIngredients();
       })
       .catch((error) => {
         console.error("Error deleting ingredient:", error);
+        console.log(error.response.data);
       });
   };
 
@@ -40,19 +62,32 @@ const Pantry = () => {
   };
 
   const addIngredient = (newIngredient) => {
-    const newData = { name: newIngredient };
+    // const newData = { name: newIngredient };
 
-    const headers = {
-      "Content-Type": "application/json",
-    };
+    // const headers = {
+    //   "Content-Type": "application/json",
+    // };
 
-    axios
-      .post("http://localhost:8000/api/ingredients/", newData, headers)
+    // axios
+    //   .post("http://localhost:8000/api/ingredients/", newData, headers)
+    //   .then((response) => {
+    //     fetchIngredients(); // Refresh the ingredient list
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    const userId = localStorage.getItem("user_id");
+    const data = { name: newIngredient, user: userId };
+
+    axiosInstance
+      .post("ingredients/", data) // Use axiosInstance and remove the base URL
       .then((response) => {
         fetchIngredients(); // Refresh the ingredient list
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Error adding ingredient:", error);
+        console.log(error.response.data);
       });
   };
 
