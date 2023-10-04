@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8000/api/token/", credentials)
+      .post("http://localhost:8000/api/login/", credentials) // Updated endpoint
       .then((response) => {
         // save access token to local storage
         const { access, refresh } = response.data;
