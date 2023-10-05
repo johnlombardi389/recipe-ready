@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
 
@@ -10,6 +11,7 @@ const Login = () => {
     password: "",
   });
 
+  const { user, login, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -30,6 +32,9 @@ const Login = () => {
         const { access, refresh } = response.data;
         localStorage.setItem("access_token", access);
         localStorage.setItem("refresh_token", refresh);
+
+        // update user auth state
+        login();
 
         axios
           .get("http://localhost:8000/api/user/", {
@@ -58,12 +63,15 @@ const Login = () => {
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("user_id");
 
+    // update user auth state
+    logout();
+
     navigate("/");
   };
 
   return (
     <>
-      <h1>Login</h1>
+      {user.isAuthenticated ? <h1>Logout</h1> : <h2>Login</h2>}
 
       <form onSubmit={handleSubmit}>
         <div>
