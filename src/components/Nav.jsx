@@ -100,12 +100,11 @@ export default Nav;
 const StyledNav = styled.nav`
   position: sticky;
   top: 0;
-  background-color: pink;
+  background-color: #ffd966;
   margin-bottom: 1rem;
   z-index: 1000;
   width: 100%;
   height: ${(props) => (props.extendNav ? "50vh" : "3.5rem")};
-  background-color: pink;
   display: flex;
   flex-direction: column;
 
@@ -121,7 +120,7 @@ const StyledNav = styled.nav`
     padding-left: 1rem;
 
     .logo {
-      color: red;
+      color: white;
       width: 2rem;
       height: auto;
     }

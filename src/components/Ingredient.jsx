@@ -21,7 +21,9 @@ const Ingredient = ({
           <p>{purchase_date}</p>
         </div>
         <div className="ing-butts">
-          <button onClick={handleDelete}>Delete</button>
+          <button className="del-btn" onClick={handleDelete}>
+            Delete
+          </button>
           <EditIngredientModal
             id={id}
             ingName={name}
@@ -38,7 +40,7 @@ const Ingredient = ({
 export default Ingredient;
 
 const StyledIngredient = styled.div`
-  background-color: pink;
+  background-color: white;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -57,5 +59,13 @@ const StyledIngredient = styled.div`
     margin-top: 0.5rem;
     display: flex;
     justify-content: space-between;
+    .del-btn {
+      background: none;
+      border: none;
+      color: #f4b183;
+      text-decoration: underline;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
   }
 `;

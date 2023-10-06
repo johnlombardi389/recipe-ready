@@ -13,6 +13,7 @@ html {
 
 body {
     width: 100%;
+    background-color: #FFF2CC;
 }
 `;
 
