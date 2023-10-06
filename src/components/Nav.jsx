@@ -8,6 +8,8 @@ import { MdKitchen } from "react-icons/md";
 const Nav = () => {
   const [extendNav, setExtendNav] = useState(false);
 
+  const isLoggedIn = !!localStorage.getItem("access_token");
+
   return (
     <StyleSheetManager
       shouldForwardProp={(prop) => !["extendNav"].includes(prop)}
@@ -24,7 +26,15 @@ const Nav = () => {
               <StyledNavLink to={"/"}>Home</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Recipes</StyledNavLink>
-              <StyledNavLink to={"/login"}>Login</StyledNavLink>
+              {!isLoggedIn ? (
+                <>
+                  <StyledNavLink to={"/login"}>Login</StyledNavLink>
+                </>
+              ) : (
+                <>
+                  <StyledNavLink to={"/login"}>Logout</StyledNavLink>
+                </>
+              )}
               <StyledNavLink to={"/register"}>Register</StyledNavLink>
               <Hamburger
                 onClick={() => {
