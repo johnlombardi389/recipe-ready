@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AuthProvider } from "../AuthContext";
 // Style
 import GlobalStyles from "./components/GlobalStyle";
 // Components
@@ -13,16 +14,18 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    <>
-      <GlobalStyles />
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Recipes />} />
-        <Route path="/pantry" element={<Pantry />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </>
+    <AuthProvider>
+      <>
+        <GlobalStyles />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Recipes />} />
+          <Route path="/pantry" element={<Pantry />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </>
+    </AuthProvider>
   );
 }
 

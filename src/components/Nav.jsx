@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
 import { StyleSheetManager } from "styled-components";
@@ -8,7 +9,7 @@ import { MdKitchen } from "react-icons/md";
 const Nav = () => {
   const [extendNav, setExtendNav] = useState(false);
 
-  const isLoggedIn = !!localStorage.getItem("access_token");
+  const { isLoggedIn } = useAuth();
 
   return (
     <StyleSheetManager
@@ -26,16 +27,15 @@ const Nav = () => {
               <StyledNavLink to={"/"}>Home</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Recipes</StyledNavLink>
-              {!isLoggedIn ? (
-                <>
-                  <StyledNavLink to={"/login"}>Login</StyledNavLink>
-                </>
-              ) : (
+              {isLoggedIn ? (
                 <>
                   <StyledNavLink to={"/login"}>Logout</StyledNavLink>
                 </>
+              ) : (
+                <>
+                  <StyledNavLink to={"/login"}>Login</StyledNavLink>
+                </>
               )}
-              <StyledNavLink to={"/register"}>Register</StyledNavLink>
               <Hamburger
                 onClick={() => {
                   setExtendNav(!extendNav);

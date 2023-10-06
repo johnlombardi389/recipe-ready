@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
 
@@ -10,8 +11,15 @@ const Login = () => {
     password: "",
   });
 
-  const isLoggedIn = !!localStorage.getItem("access_token");
+  // const [isLoggedIn, setIsLoggedIn] = useState(
+  //   !!localStorage.getItem("access_token")
+  // );
+  const { isLoggedIn, login, logout } = useAuth();
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   setIsLoggedIn(!!localStorage.getItem("access_token"));
+  // }, [isLoggedIn]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +50,7 @@ const Login = () => {
             const { id } = userResponse.data;
             localStorage.setItem("user_id", id); // Save the user's ID in local storage
 
+            login();
             // redirect
             navigate("/");
           })
@@ -59,6 +68,7 @@ const Login = () => {
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("user_id");
 
+    logout();
     navigate("/");
   };
 
@@ -88,6 +98,7 @@ const Login = () => {
             />
           </div>
           <button type="submit">Login</button>
+          <Link to="/register">Don't have an account? Sign up here</Link>
         </form>
       ) : (
         <button onClick={handleLogout}>Logout</button>
