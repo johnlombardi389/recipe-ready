@@ -71,7 +71,15 @@ const Recipes = () => {
         {loading && <p>Loading...</p>}
         <ul>
           {recipes.map((recipe) => (
-            <li key={recipe.id}>{recipe.title}</li>
+            <StyledRecipe key={recipe.id}>
+              <p>{recipe.title}</p>
+              <ul>
+                <li>Missing Ingredients:</li>
+                {recipe.missedIngredients.map((ingredient) => (
+                  <li key={ingredient.id}>{ingredient.name}</li>
+                ))}
+              </ul>
+            </StyledRecipe>
           ))}
         </ul>
       </div>
@@ -80,3 +88,7 @@ const Recipes = () => {
 };
 
 export default Recipes;
+
+const StyledRecipe = styled.div`
+  margin-top: 2rem;
+`;
