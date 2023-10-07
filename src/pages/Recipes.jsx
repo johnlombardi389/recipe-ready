@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import axiosInstance from "../../axiosInstance";
 // Style
 import styled from "styled-components";
 
@@ -9,6 +10,29 @@ const Recipes = () => {
   const [loading, setLoading] = useState(false);
 
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
+
+  useEffect(() => {
+    fetchIngredients();
+  }, []);
+
+  useEffect(() => {
+    console.log(ingredients);
+  }, [ingredients]);
+
+  const fetchIngredients = () => {
+    axiosInstance
+      .get("ingredients/")
+      .then((response) => {
+        const ingredientNames = response.data.ingredients
+          .map((ingredient) => ingredient.name)
+          .join(",");
+        setIngredients(ingredientNames);
+      })
+      .catch((error) => {
+        console.error("Error fetching ingredients:", error);
+        console.log(error.response.data);
+      });
+  };
 
   const handleSearch = async () => {
     setLoading(true);
