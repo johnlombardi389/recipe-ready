@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosInstance from "../../axiosInstance";
+// Components
+import Recipe from "../components/Recipe";
+import RecipeModal from "../components/RecipeModal";
 // Style
 import styled from "styled-components";
 
 const Recipes = () => {
   const [ingredients, setIngredients] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
@@ -43,10 +48,42 @@ const Recipes = () => {
       );
 
       setRecipes(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching recipes:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // const handleRecipeClick = async (recipe) => {
+  //   const apiUrl = `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${apiKey}`;
+
+  //   try {
+  //     const response = await axios.get(apiUrl);
+  //     setSelectedRecipe(response.data);
+  //     console.log(response.data);
+  //     setModalOpen(true);
+  //   } catch (error) {
+  //     console.error("Error fetching recipe details:", error);
+  //   }
+  // };
+  const handleRecipeClick = async (recipe) => {
+    try {
+      const apiUrl = `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${apiKey}`;
+      const response = await axios.get(apiUrl);
+
+      // Combine missing ingredients from the first API call with the details from the second API call
+      const combinedRecipeData = {
+        ...recipe,
+        details: response.data,
+      };
+
+      setSelectedRecipe(combinedRecipeData);
+      setModalOpen(true);
+      console.log(combinedRecipeData);
+    } catch (error) {
+      console.error("Error fetching recipe details:", error);
     }
   };
 
@@ -69,19 +106,23 @@ const Recipes = () => {
           <button onClick={handleSearch}>Search</button>
         </div>
         {loading && <p>Loading...</p>}
-        <ul>
+
+        <RecipesGrid>
           {recipes.map((recipe) => (
-            <StyledRecipe key={recipe.id}>
-              <p>{recipe.title}</p>
-              <ul>
-                <li>Missing Ingredients:</li>
-                {recipe.missedIngredients.map((ingredient) => (
-                  <li key={ingredient.id}>{ingredient.name}</li>
-                ))}
-              </ul>
-            </StyledRecipe>
+            <Recipe
+              key={recipe.id}
+              recipe={recipe}
+              openRecipe={handleRecipeClick}
+            />
           ))}
-        </ul>
+        </RecipesGrid>
+
+        {modalOpen && selectedRecipe && (
+          <RecipeModal
+            recipe={selectedRecipe}
+            closeModal={() => setModalOpen(false)}
+          />
+        )}
       </div>
     </>
   );
@@ -89,6 +130,9 @@ const Recipes = () => {
 
 export default Recipes;
 
-const StyledRecipe = styled.div`
-  margin-top: 2rem;
+const RecipesGrid = styled.div`
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
 `;
