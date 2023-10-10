@@ -9,7 +9,7 @@ Full-stack kitchen assistant application built using React on the front-end and 
 - [Problem](#problem)
 - [My Process](#my-process)
   - [Tech](#tech)
-  - [Example Code](#example-code)
+  - [Sample Code](#sample-code)
 - [Back-End](#back-end)
   - [Summary](#summary)
   - [Back-End Repo](#back-end-repo)
@@ -41,7 +41,7 @@ Back-End:
 - REST Framework
 - Git
 
-### Example Code
+### Sample Code
 
 ```javascript
 console.log("Hello");
