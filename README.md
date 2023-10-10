@@ -55,7 +55,7 @@ The back-end of this project was built using Python and Django along with the RE
 
 ### Back-End Repo
 
-- [Repository]
+- [Repository](https://github.com/johnlombardi389/recipe-ready-backend)
 
 ## Author
 
