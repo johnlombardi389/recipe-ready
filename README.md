@@ -1,8 +1,55 @@
-# React + Vite
+# Recipe Ready
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Full-stack kitchen assistant application built using React on the front-end and Django on the back-end with rest framework.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+
+- [My Process](#my-process)
+  - [Tech](#tech)
+  - [Example Code](#example-code)
+- [Back-End](#back-end)
+- [Author](#author)
+  - [Credits](#credits)
+
+## My Process
+
+### Tech
+
+Front-End:
+
+- React
+- JavaScript
+- Styled Components
+- Sass
+- CSS
+- HTML
+- Vite
+- Git
+- Figma
+
+Back-End:
+
+- Python
+- Django
+- REST Framework
+- Git
+
+### Example Code
+
+```javascript
+console.log("Hello");
+```
+
+## Back-End
+
+## Author
+
+John Lombardi
+
+- [Portfolio]
+- [LinkedIn]
+- [GitHub]
+
+### Credits
