@@ -6,12 +6,17 @@ Full-stack kitchen assistant application built using React on the front-end and 
 
 ## Table of Contents
 
+- [Problem](#problem)
 - [My Process](#my-process)
   - [Tech](#tech)
   - [Example Code](#example-code)
 - [Back-End](#back-end)
+  - [Summary](#summary)
+  - [Back-End Repo](#back-end-repo)
 - [Author](#author)
   - [Credits](#credits)
+
+## Problem
 
 ## My Process
 
@@ -43,6 +48,14 @@ console.log("Hello");
 ```
 
 ## Back-End
+
+### Summary
+
+The back-end of this project was built using Python and Django along with the REST framework.
+
+### Back-End Repo
+
+- [Repository]
 
 ## Author
 
