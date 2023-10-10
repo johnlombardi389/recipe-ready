@@ -41,15 +41,15 @@ const RecipeModal = ({ recipe, closeModal }) => {
           <div className="stats">
             <div className="stat">
               <BiSolidFoodMenu />
-              <p>You Need: {missingIngredientCount} Ingredients</p>
+              <p>Need: {missingIngredientCount} Ingredients</p>
             </div>
             <div className="stat">
               <IoTimer />
-              <p>Time: {recipe.details.readyInMinutes} minutes</p>
+              <p>{recipe.details.readyInMinutes} minutes</p>
             </div>
             <div className="stat">
               <IoPeople />
-              <p>Servings: {recipe.details.servings} people</p>
+              <p>Serves {recipe.details.servings}</p>
             </div>
           </div>
         </div>
@@ -70,9 +70,9 @@ const RecipeModal = ({ recipe, closeModal }) => {
           {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
         </div>
 
-        <p>Summary: {stripHtmlTags(recipe.details.summary)}</p>
+        {/* <p>Summary: {stripHtmlTags(recipe.details.summary)}</p> */}
 
-        <h3>Missing Ingredients:</h3>
+        {/* <h3>Missing Ingredients:</h3>
         <ul>
           {recipe.missedIngredients ? (
             recipe.missedIngredients.map((ingredient) => (
@@ -81,7 +81,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
           ) : (
             <li>No missing Ingredients</li>
           )}
-        </ul>
+        </ul> */}
       </div>
     </StyledModal>
   );
@@ -103,8 +103,9 @@ const StyledModal = styled.div`
 
   .modal-content {
     background-color: #fff;
-    max-width: 45%;
-    max-height: 85%;
+    max-width: 60%;
+    /* max-height: 80%; */
+    height: 80vh;
     overflow-y: auto;
     padding: 2rem;
     /* border-radius: 5px; */
