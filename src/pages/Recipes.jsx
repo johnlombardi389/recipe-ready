@@ -44,7 +44,7 @@ const Recipes = () => {
 
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=25`
       );
 
       setRecipes(response.data);

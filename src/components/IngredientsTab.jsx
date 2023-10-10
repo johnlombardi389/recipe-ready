@@ -34,8 +34,8 @@ const IngredientsTab = ({ recipe }) => {
           <li key={ingredient.id}>
             {ingredient.name}:{" "}
             {selectedUnit === "metric"
-              ? `${ingredient.measures.metric.amount}${ingredient.measures.metric.unitLong}`
-              : `${ingredient.measures.us.amount}${ingredient.measures.us.unitLong}`}
+              ? `${ingredient.measures.metric.amount} ${ingredient.measures.metric.unitLong}`
+              : `${ingredient.measures.us.amount} ${ingredient.measures.us.unitLong}`}
           </li>
         ))}
       </StyledList>
