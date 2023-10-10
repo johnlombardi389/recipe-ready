@@ -1,9 +1,20 @@
+import { useState } from "react";
+// Components
+import DirectionsTab from "./DirectionsTab";
+import IngredientsTab from "./IngredientsTab";
+import SummaryTab from "./SummaryTab";
 // Style
 import styled from "styled-components";
 import { IoTimer, IoPeople } from "react-icons/io5";
 import { BiSolidFoodMenu } from "react-icons/bi";
 
 const RecipeModal = ({ recipe, closeModal }) => {
+  const [activeTab, setActiveTab] = useState("Summary");
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
   const stripHtmlTags = (html) => {
     return html.replace(/<[^>]*>/g, "");
   };
@@ -42,9 +53,24 @@ const RecipeModal = ({ recipe, closeModal }) => {
             </div>
           </div>
         </div>
-        <p>Credits: {recipe.details.creditsText}</p>
+
+        <div className="tab-buttons">
+          <button onClick={() => handleTabClick("Directions")}>
+            Directions
+          </button>
+          <button onClick={() => handleTabClick("Ingredients")}>
+            Ingredients
+          </button>
+          <button onClick={() => handleTabClick("Summary")}>Summary</button>
+        </div>
+
+        <div className="tab-content">
+          {activeTab === "Directions" && <DirectionsTab recipe={recipe} />}
+          {activeTab === "Ingredients" && <IngredientsTab recipe={recipe} />}
+          {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
+        </div>
+
         <p>Summary: {stripHtmlTags(recipe.details.summary)}</p>
-        <p>Instructions: {recipe.details.instructions}</p>
 
         <h3>Missing Ingredients:</h3>
         <ul>
