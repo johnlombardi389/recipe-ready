@@ -5,18 +5,17 @@ import IngredientsTab from "./IngredientsTab";
 import SummaryTab from "./SummaryTab";
 // Style
 import styled from "styled-components";
-import { IoTimer, IoPeople } from "react-icons/io5";
-import { BiSolidFoodMenu } from "react-icons/bi";
+import {
+  MdNoFood,
+  MdOutlineAccessTimeFilled,
+  MdPeopleAlt,
+} from "react-icons/md";
 
 const RecipeModal = ({ recipe, closeModal }) => {
   const [activeTab, setActiveTab] = useState("Ingredients");
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
-  };
-
-  const stripHtmlTags = (html) => {
-    return html.replace(/<[^>]*>/g, "");
   };
 
   const missingIngredientCount = recipe.missedIngredients.length;
@@ -40,15 +39,15 @@ const RecipeModal = ({ recipe, closeModal }) => {
           </div>
           <div className="stats">
             <div className="stat">
-              <BiSolidFoodMenu />
+              <MdNoFood />
               <p>Need: {missingIngredientCount} Ingredients</p>
             </div>
             <div className="stat">
-              <IoTimer />
+              <MdOutlineAccessTimeFilled />
               <p>{recipe.details.readyInMinutes} minutes</p>
             </div>
             <div className="stat">
-              <IoPeople />
+              <MdPeopleAlt />
               <p>Serves {recipe.details.servings}</p>
             </div>
           </div>
@@ -112,7 +111,7 @@ const StyledModal = styled.div`
 
   .modal-content {
     background-color: #fff;
-    max-width: 70%;
+    width: 50vw;
     max-height: 85%;
     overflow-y: auto;
     padding: 2rem;
@@ -153,12 +152,24 @@ const StyledModal = styled.div`
       justify-content: space-around;
       align-items: center;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
 
       .stat {
         display: flex;
         align-items: center;
         p {
           margin-left: 0.25rem;
+        }
+      }
+    }
+
+    @media (max-width: 550px) {
+      .stats {
+        justify-content: center;
+        .stat {
+          p {
+            margin: 0.5rem;
+          }
         }
       }
     }
@@ -175,6 +186,13 @@ const StyledModal = styled.div`
       display: flex;
       justify-content: space-between;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 475px) {
+      .tab-buttons {
+        justify-content: center;
+      }
     }
 
     .tab-button {
@@ -183,9 +201,18 @@ const StyledModal = styled.div`
       cursor: pointer;
       border: none;
       background-color: transparent;
+      font-size: 1rem;
       font-weight: bold;
       color: #555;
       transition: color 0.3s;
+    }
+
+    @media (max-width: 550px) {
+      .tab-button {
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+        padding: 0.25rem 0.75rem;
+      }
     }
 
     .tab-button:hover {
@@ -206,6 +233,12 @@ const StyledModal = styled.div`
       height: 3px; /* Adjust the thickness of the underline */
       background-color: green; /* Color of the underline for the active tab */
       transition: width 0.3s ease-in-out;
+    }
+  }
+
+  @media (max-width: 925px) {
+    .modal-content {
+      width: 80vw;
     }
   }
 
