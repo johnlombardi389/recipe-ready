@@ -9,7 +9,7 @@ import { IoTimer, IoPeople } from "react-icons/io5";
 import { BiSolidFoodMenu } from "react-icons/bi";
 
 const RecipeModal = ({ recipe, closeModal }) => {
-  const [activeTab, setActiveTab] = useState("Summary");
+  const [activeTab, setActiveTab] = useState("Ingredients");
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -55,13 +55,30 @@ const RecipeModal = ({ recipe, closeModal }) => {
         </div>
 
         <div className="tab-buttons">
-          <button onClick={() => handleTabClick("Directions")}>
+          <button
+            className={`tab-button ${
+              activeTab === "Directions" ? "active-tab" : ""
+            }`}
+            onClick={() => handleTabClick("Directions")}
+          >
             Directions
           </button>
-          <button onClick={() => handleTabClick("Ingredients")}>
+          <button
+            className={`tab-button ${
+              activeTab === "Ingredients" ? "active-tab" : ""
+            }`}
+            onClick={() => handleTabClick("Ingredients")}
+          >
             Ingredients
           </button>
-          <button onClick={() => handleTabClick("Summary")}>Summary</button>
+          <button
+            className={`tab-button ${
+              activeTab === "Summary" ? "active-tab" : ""
+            }`}
+            onClick={() => handleTabClick("Summary")}
+          >
+            Summary
+          </button>
         </div>
 
         <div className="tab-content">
@@ -69,19 +86,10 @@ const RecipeModal = ({ recipe, closeModal }) => {
           {activeTab === "Ingredients" && <IngredientsTab recipe={recipe} />}
           {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
         </div>
-
-        {/* <p>Summary: {stripHtmlTags(recipe.details.summary)}</p> */}
-
-        {/* <h3>Missing Ingredients:</h3>
-        <ul>
-          {recipe.missedIngredients ? (
-            recipe.missedIngredients.map((ingredient) => (
-              <li key={ingredient.id}>{ingredient.name}</li>
-            ))
-          ) : (
-            <li>No missing Ingredients</li>
-          )}
-        </ul> */}
+      </div>
+      <div className="btns">
+        <button>Save Recipe</button>
+        <button>Add Ingredients to Shopping List</button>
       </div>
     </StyledModal>
   );
@@ -91,6 +99,7 @@ export default RecipeModal;
 
 const StyledModal = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -99,13 +108,12 @@ const StyledModal = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
+  z-index: 1000;
 
   .modal-content {
     background-color: #fff;
-    max-width: 60%;
-    /* max-height: 80%; */
-    height: 80vh;
+    max-width: 70%;
+    max-height: 85%;
     overflow-y: auto;
     padding: 2rem;
     /* border-radius: 5px; */
@@ -161,6 +169,53 @@ const StyledModal = styled.div`
       right: 10px;
       font-size: 24px;
       cursor: pointer;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .tab-button {
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      color: #555;
+      transition: color 0.3s;
+    }
+
+    .tab-button:hover {
+      color: green; /* Change color on hover */
+    }
+
+    /* CSS for the active tab's underline */
+    .active-tab {
+      position: relative;
+    }
+
+    .active-tab::after {
+      content: "";
+      position: absolute;
+      bottom: -2px; /* Adjust the thickness of the underline */
+      left: 0;
+      width: 100%;
+      height: 3px; /* Adjust the thickness of the underline */
+      background-color: green; /* Color of the underline for the active tab */
+      transition: width 0.3s ease-in-out;
+    }
+  }
+
+  .btns {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    button {
+      padding: 1rem 1.5rem;
+      margin: 0 1rem 1rem 1rem;
     }
   }
 `;

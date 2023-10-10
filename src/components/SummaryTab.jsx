@@ -6,7 +6,9 @@ const SummaryTab = ({ recipe }) => {
   };
   return (
     <>
-      <div dangerouslySetInnerHTML={createMarkup(recipe.details.summary)} />
+      <div
+        dangerouslySetInnerHTML={createMarkup(recipe.details.instructions)}
+      />
     </>
   );
 };
