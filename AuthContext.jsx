@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = () => {
     setIsLoggedIn(true);
-    localStorage.setItem("access_token", "your_token_here");
+    localStorage.setItem("access_token", access);
   };
 
   const logout = () => {
