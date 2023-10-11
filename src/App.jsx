@@ -19,9 +19,9 @@ function App() {
         <GlobalStyles />
         <Nav />
         <Routes>
-          <Route path="/" element={<Recipes />} />
+          <Route path="/" element={<Login />} />
           <Route path="/pantry" element={<Pantry />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/recipes" element={<Recipes />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // Style
 import styled from "styled-components";
@@ -9,6 +10,8 @@ const Register = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +33,8 @@ const Register = () => {
 
         // Redirect or perform any other action you need after registration
         console.log("Registration successful", response.data);
+        // redirect
+        navigate("/pantry");
       })
       .catch((error) => {
         console.error("Error registering user:", error);

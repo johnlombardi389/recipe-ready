@@ -80,7 +80,7 @@ const Login = () => {
             const { id } = userResponse.data;
             localStorage.setItem("user_id", id);
             // redirect
-            navigate("/");
+            navigate("/pantry");
           })
           .catch((error) => {
             console.error("Error getting user information:", error);

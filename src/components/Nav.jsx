@@ -26,14 +26,14 @@ const Nav = () => {
             <NavLinks>
               <StyledNavLink to={"/"}>Home</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
-              <StyledNavLink to={"/pantry"}>Recipes</StyledNavLink>
+              <StyledNavLink to={"/recipes"}>Recipes</StyledNavLink>
               {isLoggedIn ? (
                 <>
-                  <StyledNavLink to={"/login"}>Logout</StyledNavLink>
+                  <StyledNavLink to={"/"}>Logout</StyledNavLink>
                 </>
               ) : (
                 <>
-                  <StyledNavLink to={"/login"}>Login</StyledNavLink>
+                  <StyledNavLink to={"/"}>Login</StyledNavLink>
                 </>
               )}
               <Hamburger
