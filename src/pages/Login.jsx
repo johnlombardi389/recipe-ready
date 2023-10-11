@@ -11,15 +11,8 @@ const Login = () => {
     password: "",
   });
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(
-  //   !!localStorage.getItem("access_token")
-  // );
   const { isLoggedIn, login, logout } = useAuth();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   setIsLoggedIn(!!localStorage.getItem("access_token"));
-  // }, [isLoggedIn]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -103,33 +96,6 @@ const Login = () => {
       ) : (
         <button onClick={handleLogout}>Logout</button>
       )}
-
-      {/* <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={credentials.username}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-
-      <button onClick={handleLogout}>Logout</button> */}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from "react";
 // Components
-import DirectionsTab from "./DirectionsTab";
+import NutritionTab from "./NutritionTab";
 import IngredientsTab from "./IngredientsTab";
 import SummaryTab from "./SummaryTab";
 // Style
@@ -56,14 +56,6 @@ const RecipeModal = ({ recipe, closeModal }) => {
         <div className="tab-buttons">
           <button
             className={`tab-button ${
-              activeTab === "Directions" ? "active-tab" : ""
-            }`}
-            onClick={() => handleTabClick("Directions")}
-          >
-            Directions
-          </button>
-          <button
-            className={`tab-button ${
               activeTab === "Ingredients" ? "active-tab" : ""
             }`}
             onClick={() => handleTabClick("Ingredients")}
@@ -78,10 +70,18 @@ const RecipeModal = ({ recipe, closeModal }) => {
           >
             Summary
           </button>
+          <button
+            className={`tab-button ${
+              activeTab === "Nutrition" ? "active-tab" : ""
+            }`}
+            onClick={() => handleTabClick("Nutrition")}
+          >
+            Nutrition
+          </button>
         </div>
 
         <div className="tab-content">
-          {activeTab === "Directions" && <DirectionsTab recipe={recipe} />}
+          {activeTab === "Nutrition" && <NutritionTab recipe={recipe} />}
           {activeTab === "Ingredients" && <IngredientsTab recipe={recipe} />}
           {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
         </div>

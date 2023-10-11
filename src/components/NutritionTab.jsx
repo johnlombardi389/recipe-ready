@@ -1,6 +1,6 @@
 import React from "react";
 
-const DirectionsTab = ({ recipe }) => {
+const NutritionTab = ({ recipe }) => {
   return (
     <>
       <div>
@@ -14,4 +14,4 @@ const DirectionsTab = ({ recipe }) => {
   );
 };
 
-export default DirectionsTab;
+export default NutritionTab;
