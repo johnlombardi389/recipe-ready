@@ -22,6 +22,40 @@ const Login = () => {
     });
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   axios
+  //     .post("http://localhost:8000/api/login/", credentials) // Updated endpoint
+  //     .then((response) => {
+  //       // save access token to local storage
+  //       const { access, refresh } = response.data;
+  //       localStorage.setItem("access_token", access);
+  //       localStorage.setItem("refresh_token", refresh);
+
+  //       axios
+  //         .get("http://localhost:8000/api/user/", {
+  //           headers: {
+  //             Authorization: `Bearer ${access}`, // Include the access token in the request headers
+  //           },
+  //         })
+  //         .then((userResponse) => {
+  //           const { id } = userResponse.data;
+  //           localStorage.setItem("user_id", id); // Save the user's ID in local storage
+
+  //           login();
+  //           // redirect
+  //           navigate("/");
+  //         })
+  //         .catch((error) => {
+  //           console.error("Error getting user information:", error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error logging in:", error);
+  //     });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,20 +64,21 @@ const Login = () => {
       .then((response) => {
         // save access token to local storage
         const { access, refresh } = response.data;
-        localStorage.setItem("access_token", access);
+
+        // Update the login function to include the access token
+        login(access);
+
         localStorage.setItem("refresh_token", refresh);
 
         axios
           .get("http://localhost:8000/api/user/", {
             headers: {
-              Authorization: `Bearer ${access}`, // Include the access token in the request headers
+              Authorization: `Bearer ${access}`,
             },
           })
           .then((userResponse) => {
             const { id } = userResponse.data;
-            localStorage.setItem("user_id", id); // Save the user's ID in local storage
-
-            login();
+            localStorage.setItem("user_id", id);
             // redirect
             navigate("/");
           })

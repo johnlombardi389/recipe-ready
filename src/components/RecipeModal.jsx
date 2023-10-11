@@ -21,10 +21,10 @@ const RecipeModal = ({ recipe, closeModal }) => {
   const missingIngredientCount = recipe.missedIngredients.length;
   return (
     <StyledModal>
+      <span className="close" onClick={closeModal}>
+        &times;
+      </span>
       <div className="modal-content">
-        <span className="close" onClick={closeModal}>
-          &times;
-        </span>
         <img src={recipe.details.image} alt={recipe.title} />
 
         <div className="info">
@@ -86,10 +86,10 @@ const RecipeModal = ({ recipe, closeModal }) => {
           {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
         </div>
       </div>
-      <div className="btns">
+      {/* <div className="btns">
         <button>Save Recipe</button>
         <button>Add Ingredients to Shopping List</button>
-      </div>
+      </div> */}
     </StyledModal>
   );
 };
@@ -108,6 +108,23 @@ const StyledModal = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
+
+  .close {
+    z-index: 2000;
+    color: red;
+    top: 3rem;
+    right: 3rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    position: absolute;
+    cursor: pointer;
+    background-color: pink;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .modal-content {
     background-color: #fff;
@@ -174,13 +191,14 @@ const StyledModal = styled.div`
       }
     }
 
-    .close {
+    /* .close {
       position: absolute;
       top: 10px;
       right: 10px;
       font-size: 24px;
       cursor: pointer;
-    }
+      color: red;
+    } */
 
     .tab-buttons {
       display: flex;
