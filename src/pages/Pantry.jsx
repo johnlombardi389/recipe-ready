@@ -65,8 +65,6 @@ const Pantry = () => {
       });
   };
 
-  console.log(ingredients);
-
   return (
     <>
       {isLoggedIn ? (
