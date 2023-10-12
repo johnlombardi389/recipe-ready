@@ -4,9 +4,12 @@ import axiosInstance from "../../axiosInstance";
 import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
+// Pages
+import Login from "./Login";
 // Components
 import Ingredient from "../components/Ingredient";
 import IngredientModal from "../components/IngredientModal";
+import NoIngredients from "../components/NoIngredients";
 
 const Pantry = () => {
   const { isLoggedIn } = useAuth();
@@ -62,6 +65,8 @@ const Pantry = () => {
       });
   };
 
+  console.log(ingredients);
+
   return (
     <>
       {isLoggedIn ? (
@@ -75,7 +80,7 @@ const Pantry = () => {
             </div>
           </StyledTitleSection>
 
-          {ingredients ? (
+          {ingredients.length != 0 ? (
             <IngredientsGrid>
               {ingredients.map((ingredient) => (
                 <Ingredient
@@ -89,11 +94,11 @@ const Pantry = () => {
               ))}
             </IngredientsGrid>
           ) : (
-            <p>There are no ingredients</p>
+            <NoIngredients />
           )}
         </>
       ) : (
-        <p>Please login</p>
+        <Login />
       )}
     </>
   );
@@ -113,33 +118,3 @@ const IngredientsGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1rem;
 `;
-
-{
-  /* <StyledTitleSection>
-        <div className="title">
-          <h2>Your Virtual Pantry</h2>
-        </div>
-        <div className="add-butt">
-          <IngredientModal newIngredient={newIngredient} />
-        </div>
-      </StyledTitleSection>
-
-      {ingredients ? (
-        <IngredientsGrid>
-          {ingredients.map((ingredient) => {
-            return (
-              <Ingredient
-                key={ingredient.id}
-                id={ingredient.id}
-                name={ingredient.name}
-                purchase_date={ingredient.purchase_date}
-                deleteIngredients={deleteIngredients}
-                fetchIngredients={fetchIngredients}
-              />
-            );
-          })}
-        </IngredientsGrid>
-      ) : (
-        <p>There are no ingredients</p>
-      )} */
-}
