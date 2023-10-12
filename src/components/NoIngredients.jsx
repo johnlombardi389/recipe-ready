@@ -5,7 +5,10 @@ const NoIngredients = () => {
   return (
     <StyledContainer>
       <StyledMessage>
-        <p>No ingredients found</p>
+        <h3>No ingredients found</h3>
+        <p>
+          Get started by clicking the "+ Add Ingredient" button in the top right
+        </p>
       </StyledMessage>
     </StyledContainer>
   );
@@ -18,11 +21,17 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  width: 90vw;
+  height: 50vh;
+  background-color: grey;
+  margin: 2rem auto;
+  border-radius: 2rem;
 `;
 
 const StyledMessage = styled.div`
-  p {
+  text-align: center;
+  h3 {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
 `;
