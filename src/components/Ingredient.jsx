@@ -13,17 +13,26 @@ const Ingredient = ({
   const handleDelete = () => {
     deleteIngredients(id);
   };
+
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-US", options).format(date);
+  };
+
+  const formattedPurchaseDate = formatDate(purchase_date);
+
   return (
     <>
       <StyledIngredient>
         <div className="ing-titles">
           <p className="ing-name">{name}</p>
-          <p>{purchase_date}</p>
         </div>
         <div className="ing-butts">
-          <button className="del-btn" onClick={handleDelete}>
+          {/* <button className="del-btn" onClick={handleDelete}>
             Delete
-          </button>
+          </button> */}
+          <p>{formattedPurchaseDate}</p>
           <EditIngredientModal
             id={id}
             ingName={name}

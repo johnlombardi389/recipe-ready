@@ -93,9 +93,16 @@ const EditIngredientModal = ({
 export default EditIngredientModal;
 
 const StyledButton = styled.button`
-  background-color: lightblue;
+  /* background-color: lightblue;
   color: darkgreen;
   padding: 0.15rem 0.75rem;
+  cursor: pointer; */
+
+  background: none;
+  border: none;
+  color: #f4b183;
+  text-decoration: underline;
+  font-size: 0.75rem;
   cursor: pointer;
 `;
 
