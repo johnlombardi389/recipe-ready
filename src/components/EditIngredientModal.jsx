@@ -100,6 +100,7 @@ const EditIngredientModal = ({
                     id="purchase_date"
                     selected={newDate}
                     onChange={(date) => setNewDate(date)}
+                    dateFormat="MMMM d, yyyy"
                   />
                 </div>
               </div>
