@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 // Style
 import styled from "styled-components";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const EditIngredientModal = ({
   id,
@@ -12,6 +14,7 @@ const EditIngredientModal = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState(ingName);
+  const [newDate, setNewDate] = useState(new Date(purchase_date));
 
   const openModal = () => {
     setIsOpen(true);
@@ -21,13 +24,29 @@ const EditIngredientModal = ({
     setIsOpen(false);
   };
 
+  const getToken = () => {
+    return localStorage.getItem("access_token");
+  };
+
+  const getUserId = () => {
+    return localStorage.getItem("user_id");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      const formattedDate = newDate.toISOString().split("T")[0];
+      const userToken = getToken();
+      const userId = getUserId();
       const response = await axios.put(
         `http://localhost:8000/api/ingredients/${id}/`,
-        { name }
+        { name, purchase_date: formattedDate, user: userId },
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
       );
     } catch (error) {
       console.error("Error updating ingredient", error);
@@ -68,6 +87,19 @@ const EditIngredientModal = ({
                     onChange={(e) => {
                       setName(e.target.value);
                     }}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <label htmlFor="purchase_date">Purchase Date</label>
+                </div>
+                <div>
+                  <DatePicker
+                    id="purchase_date"
+                    selected={newDate}
+                    onChange={(date) => setNewDate(date)}
                   />
                 </div>
               </div>
