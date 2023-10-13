@@ -56,18 +56,6 @@ const Recipes = () => {
     }
   };
 
-  // const handleRecipeClick = async (recipe) => {
-  //   const apiUrl = `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${apiKey}`;
-
-  //   try {
-  //     const response = await axios.get(apiUrl);
-  //     setSelectedRecipe(response.data);
-  //     console.log(response.data);
-  //     setModalOpen(true);
-  //   } catch (error) {
-  //     console.error("Error fetching recipe details:", error);
-  //   }
-  // };
   const handleRecipeClick = async (recipe) => {
     try {
       const apiUrl = `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${apiKey}`;

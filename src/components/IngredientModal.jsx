@@ -68,10 +68,68 @@ const IngredientModal = ({ newIngredient }) => {
 
 export default IngredientModal;
 
+// /* CSS */
+// .button-68 {
+//   appearance: none;
+//   backface-visibility: hidden;
+//   background-color: #27ae60;
+//   border-radius: 8px;
+//   border-style: none;
+//   box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+//   box-sizing: border-box;
+//   color: #fff;
+//   cursor: pointer;
+//   display: inline-block;
+//   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+//   font-size: 16px;
+//   font-weight: 600;
+//   letter-spacing: normal;
+//   line-height: 1.5;
+//   outline: none;
+//   overflow: hidden;
+//   padding: 13px 20px;
+//   position: relative;
+//   text-align: center;
+//   text-decoration: none;
+//   transform: translate3d(0, 0, 0);
+//   transition: all .3s;
+//   user-select: none;
+//   -webkit-user-select: none;
+//   touch-action: manipulation;
+//   vertical-align: top;
+//   white-space: nowrap;
+// }
+
+// .button-68:hover {
+//   background-color: #1e8449;
+//   opacity: 1;
+//   transform: translateY(0);
+//   transition-duration: .35s;
+// }
+
+// .button-68:active {
+//   transform: translateY(2px);
+//   transition-duration: .35s;
+// }
+
+// .button-68:hover {
+//   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+// }
+
 const StyledButton = styled.button`
   background-color: yellow;
-  padding: 0.15rem 0.75rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+  &:hover {
+    background-color: white;
+    box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+  }
 `;
 
 const StyledModal = styled.div`

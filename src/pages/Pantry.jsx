@@ -65,13 +65,20 @@ const Pantry = () => {
       });
   };
 
+  const todaysDate = new Date();
+  const dateOptions = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = todaysDate.toLocaleDateString(undefined, dateOptions);
+
   return (
     <>
+      <PageTitle>
+        <h1>Your Virtual Pantry</h1>
+      </PageTitle>
       {isLoggedIn ? (
         <>
           <StyledTitleSection>
             <div className="title">
-              <h2>Your Virtual Pantry</h2>
+              <p>Today is {formattedDate}</p>
             </div>
             <div className="add-butt">
               <IngredientModal newIngredient={newIngredient} />
@@ -104,10 +111,19 @@ const Pantry = () => {
 
 export default Pantry;
 
+const PageTitle = styled.div`
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
 const StyledTitleSection = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 1rem;
+  p {
+    font-size: 1.2rem;
+  }
 `;
 
 const IngredientsGrid = styled.div`
