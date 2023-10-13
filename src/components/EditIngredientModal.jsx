@@ -37,6 +37,11 @@ const EditIngredientModal = ({
     closeModal();
   };
 
+  const deleteCurrent = () => {
+    deleteIngredients(id);
+    closeModal();
+  };
+
   return (
     <>
       <StyledButton onClick={openModal}>Edit</StyledButton>
@@ -68,7 +73,7 @@ const EditIngredientModal = ({
               </div>
             </StyledForm>
             <FormButtons>
-              <button>Delete</button>
+              <button onClick={deleteCurrent}>Delete</button>
               <div className="edit-butts">
                 <button className="cancel-butt" onClick={closeModal}>
                   Cancel
