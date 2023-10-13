@@ -25,9 +25,8 @@ const Ingredient = ({
   return (
     <>
       <StyledIngredient>
-        <div className="ing-titles">
-          <p className="ing-name">{name}</p>
-        </div>
+        <p className="ing-name">{name}</p>
+
         <div className="ing-butts">
           {/* <button className="del-btn" onClick={handleDelete}>
             Delete
@@ -50,31 +49,37 @@ export default Ingredient;
 
 const StyledIngredient = styled.div`
   background-color: white;
-  padding: 10px;
+  /* padding: 10px; */
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
-  .ing-titles {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .ing-name {
-      font-size: 1.25rem;
-    }
+  .ing-name {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+
+    padding: 0.5rem 1rem 0 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 
   .ing-butts {
     margin-top: 0.5rem;
     display: flex;
     justify-content: space-between;
-    .del-btn {
+    align-items: center;
+    padding: 0 1rem 0.5rem 1rem;
+    /* .del-btn {
       background: none;
       border: none;
       color: #f4b183;
       text-decoration: underline;
       font-size: 0.75rem;
       cursor: pointer;
+    } */
+    p {
+      font-size: 0.85rem;
+      color: grey;
     }
   }
 `;

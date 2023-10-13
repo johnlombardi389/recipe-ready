@@ -135,7 +135,7 @@ const StyledButton = styled.button`
   border: none;
   color: #f4b183;
   text-decoration: underline;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   cursor: pointer;
 `;
 
