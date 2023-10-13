@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import axiosInstance from "../../axiosInstance";
 import { useAuth } from "../../AuthContext";
@@ -80,7 +81,11 @@ const Pantry = () => {
             <div className="title">
               <p>Today is {formattedDate}</p>
             </div>
-            <div className="add-butt">
+            <div className="btns">
+              <Link to={"/recipes"} className="recipe-btn">
+                Find Recipes
+              </Link>
+
               <IngredientModal newIngredient={newIngredient} />
             </div>
           </StyledTitleSection>
@@ -124,11 +129,24 @@ const StyledTitleSection = styled.div`
   p {
     font-size: 1.2rem;
   }
+  .btns {
+    display: flex;
+    align-items: center;
+
+    .recipe-btn {
+      background-color: red;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+  }
 `;
 
 const IngredientsGrid = styled.div`
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1rem;
 `;
