@@ -91,7 +91,7 @@ const Recipes = () => {
       <h1>Recipes</h1>
 
       <div>
-        <h1>Recipe Search</h1>
+        <h1>You could make</h1>
         {/* <div>
           <label htmlFor="ingredients">
             Enter Ingredients (comma-separated):
@@ -116,7 +116,7 @@ const Recipes = () => {
 
         <div>
           <label htmlFor="ranking" className="switch">
-            Ranking Option:
+            Filter by min ingredients:
           </label>
           <input
             type="checkbox"
