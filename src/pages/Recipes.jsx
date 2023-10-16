@@ -22,6 +22,7 @@ const Recipes = () => {
 
   useEffect(() => {
     console.log(ingredients);
+    handleSearch();
   }, [ingredients]);
 
   const fetchIngredients = () => {
@@ -81,7 +82,7 @@ const Recipes = () => {
 
       <div>
         <h1>Recipe Search</h1>
-        <div>
+        {/* <div>
           <label htmlFor="ingredients">
             Enter Ingredients (comma-separated):
           </label>
@@ -92,7 +93,7 @@ const Recipes = () => {
             onChange={(e) => setIngredients(e.target.value)}
           />
           <button onClick={handleSearch}>Search</button>
-        </div>
+        </div> */}
         {loading && <p>Loading...</p>}
 
         <RecipesGrid>
