@@ -13,6 +13,7 @@ const Recipes = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [filterByMin, setFilterByMin] = useState(false);
 
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
@@ -23,7 +24,7 @@ const Recipes = () => {
   useEffect(() => {
     console.log(ingredients);
     handleSearch();
-  }, [ingredients]);
+  }, [ingredients, filterByMin]);
 
   const fetchIngredients = () => {
     axiosInstance
@@ -44,11 +45,20 @@ const Recipes = () => {
     setLoading(true);
 
     try {
+      const rankingParam = filterByMin ? "&ranking=2" : "";
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=100`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=100&ignorePantry=true${rankingParam}`
       );
 
+      // const filteredRecipes = response.date.filter(
+      //   (recipe) => recipe.missedIngredientCount <= filter
+      // );
+
+      // filteredRecipes.sort(
+      //   (a, b) => a.missedIngredientCount - b.missedIngredientCount
+      // );
       setRecipes(response.data);
+
       console.log(response.data);
     } catch (error) {
       console.error("Error fetching recipes:", error);
@@ -94,6 +104,28 @@ const Recipes = () => {
           />
           <button onClick={handleSearch}>Search</button>
         </div> */}
+        {/* <div>
+          <label htmlFor="filter">Max Missing Ingredients:</label>
+          <input
+            type="number"
+            id="filter"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          />
+        </div> */}
+
+        <div>
+          <label htmlFor="ranking" className="switch">
+            Ranking Option:
+          </label>
+          <input
+            type="checkbox"
+            id="ranking"
+            checked={filterByMin}
+            onChange={() => setFilterByMin(!filterByMin)}
+          />
+        </div>
+
         {loading && <p>Loading...</p>}
 
         <RecipesGrid>
