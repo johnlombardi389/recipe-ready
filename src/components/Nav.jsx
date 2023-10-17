@@ -27,6 +27,7 @@ const Nav = () => {
               <StyledNavLink to={"/"}>Home</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
               <StyledNavLink to={"/recipes"}>Recipes</StyledNavLink>
+              <StyledNavLink to={"/profile"}>Profile</StyledNavLink>
               {isLoggedIn ? (
                 <>
                   <StyledNavLink to={"/"}>Logout</StyledNavLink>

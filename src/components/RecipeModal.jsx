@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import axiosInstance from "../../axiosInstance";
 // Components
 import NutritionTab from "./NutritionTab";
 import IngredientsTab from "./IngredientsTab";
@@ -13,12 +15,48 @@ import {
 
 const RecipeModal = ({ recipe, closeModal }) => {
   const [activeTab, setActiveTab] = useState("Ingredients");
+  const [missingIngredients, setMissingIngredients] = useState([]);
+
+  useEffect(() => {
+    setMissingIngredients(recipe.missedIngredients);
+  }, []);
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
 
   const missingIngredientCount = recipe.missedIngredients.length;
+
+  // const newShoppingItem = (item) => {
+  //   addShoppingItem(item);
+  // };
+
+  const addShoppingItems = (newItems) => {
+    const userId = localStorage.getItem("user_id");
+
+    // Iterate over the array of new items
+    newItems.forEach((newItem) => {
+      const data = { item: newItem.name, user: userId };
+
+      // Send a POST request to add the shopping item
+      axiosInstance
+        .post("shopping-list/", data)
+        .then((response) => {
+          // Handle the response, e.g., update the UI or state
+          console.log(`Added item: ${newItem}`);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error("Error adding item:", error);
+        });
+    });
+  };
+
+  const updateShoppingList = () => {
+    console.log(missingIngredients);
+    addShoppingItems(missingIngredients);
+  };
+
   return (
     <StyledModal>
       <span className="close" onClick={closeModal}>
@@ -58,7 +96,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
             className={`tab-button ${
               activeTab === "Ingredients" ? "active-tab" : ""
             }`}
-            onClick={() => handleTabClick("Ingredients")}
+            onClick={() => handleTabClick()}
           >
             Ingredients
           </button>
@@ -86,10 +124,14 @@ const RecipeModal = ({ recipe, closeModal }) => {
           {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
         </div>
       </div>
-      {/* <div className="btns">
+      <div className="btns">
         <button>Save Recipe</button>
-        <button>Add Ingredients to Shopping List</button>
-      </div> */}
+        <button
+          onClick={() => updateShoppingList(recipe.details.missedIngredients)}
+        >
+          Add Ingredients to Shopping List
+        </button>
+      </div>
     </StyledModal>
   );
 };
