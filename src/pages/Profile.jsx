@@ -30,13 +30,33 @@ const Profile = () => {
       });
   };
 
+  const deleteItem = (id) => {
+    axiosInstance
+      .delete(`shopping-list/${id}`)
+      .then(() => {
+        // After successful deletion, refresh
+        fetchShoppingList();
+      })
+      .catch((error) => {
+        console.error("Error deleting shopping list item:", error);
+        console.log(error.response.data);
+      });
+  };
+
   return (
     <>
       <div>
         <h1>Your Shopping List</h1>
 
         {shoppingList.map((item) => (
-          <p key={item.id}>{item.item}</p>
+          <>
+            <StyledShoppingItem key={item.id}>
+              <p>{item.item}</p>
+              <span className="close" onClick={() => deleteItem(item.id)}>
+                &times;
+              </span>
+            </StyledShoppingItem>
+          </>
         ))}
       </div>
     </>
@@ -44,3 +64,14 @@ const Profile = () => {
 };
 
 export default Profile;
+
+const StyledShoppingItem = styled.div`
+  display: flex;
+  align-items: center;
+  p {
+    margin-right: 1rem;
+  }
+  .close {
+    cursor: pointer;
+  }
+`;
