@@ -16,6 +16,7 @@ import {
 const RecipeModal = ({ recipe, closeModal }) => {
   const [activeTab, setActiveTab] = useState("Ingredients");
   const [missingIngredients, setMissingIngredients] = useState([]);
+  const [existingRecipes, setExistingRecipes] = useState([]);
 
   useEffect(() => {
     setMissingIngredients(recipe.missedIngredients);
@@ -26,10 +27,6 @@ const RecipeModal = ({ recipe, closeModal }) => {
   };
 
   const missingIngredientCount = recipe.missedIngredients.length;
-
-  // const newShoppingItem = (item) => {
-  //   addShoppingItem(item);
-  // };
 
   const addShoppingItems = (newItems) => {
     const userId = localStorage.getItem("user_id");
@@ -53,8 +50,36 @@ const RecipeModal = ({ recipe, closeModal }) => {
   };
 
   const updateShoppingList = () => {
-    console.log(missingIngredients);
     addShoppingItems(missingIngredients);
+  };
+
+  const fetchRecipeBook = () => {
+    axiosInstance
+      .get("user-profile/")
+      .then((response) => {
+        setExistingRecipes(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching items:", error);
+      });
+  };
+
+  const updateRecipeBook = (recipeData) => {
+    const userId = localStorage.getItem("user_id");
+
+    const updatedRecipeData = [...existingRecipes, recipeData];
+
+    const data = { saved_recipes_data: updatedRecipeData, user: userId };
+
+    axiosInstance
+      .put("user-profile/", data)
+      .then((response) => {
+        console.log("Recipe saved");
+      })
+      .catch((error) => {
+        console.error("Error saving recipe:", error);
+        console.error("Error response:", error.response);
+      });
   };
 
   return (
@@ -125,7 +150,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
         </div>
       </div>
       <div className="btns">
-        <button>Save Recipe</button>
+        <button onClick={() => updateRecipeBook(recipe)}>Save Recipe</button>
         <button
           onClick={() => updateShoppingList(recipe.details.missedIngredients)}
         >

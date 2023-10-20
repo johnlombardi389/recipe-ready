@@ -9,11 +9,13 @@ import Login from "./Login";
 
 const Profile = () => {
   const [shoppingList, setShoppingList] = useState([]);
+
   const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     if (isLoggedIn) {
       fetchShoppingList();
+      console.log(shoppingList);
     }
   }, [isLoggedIn]);
 
@@ -22,7 +24,6 @@ const Profile = () => {
       .get("shopping-list/")
       .then((response) => {
         setShoppingList(response.data.shopping_list_items);
-        console.log(response.data.shopping_list_items);
       })
       .catch((error) => {
         console.error("Error fetching items:", error);
@@ -31,11 +32,13 @@ const Profile = () => {
 
   return (
     <>
-      <h1>Your Shopping List</h1>
+      <div>
+        <h1>Your Shopping List</h1>
 
-      {shoppingList.map((item) => (
-        <p key={item.id}>{item.item}</p>
-      ))}
+        {shoppingList.map((item) => (
+          <p key={item.id}>{item.item}</p>
+        ))}
+      </div>
     </>
   );
 };
