@@ -139,13 +139,14 @@ const Buttons = styled.div`
     padding: 8px 16px;
     margin: 0 10px;
     cursor: pointer;
+    border-radius: 0.5rem;
   }
   .delete-btn {
-    background-color: grey;
-    color: white;
+    background: none;
+    color: black;
+    text-decoration: underline;
     border: none;
-    padding: 8px 16px;
-    margin: 0 10px;
+    margin-right: 2rem;
     cursor: pointer;
   }
 `;
