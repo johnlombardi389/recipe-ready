@@ -65,34 +65,87 @@ const Profile = () => {
 
   return (
     <>
-      <div>
+      <ListContainer>
         <h1>Your Shopping List</h1>
-
-        {shoppingList.map((item) => (
-          <>
-            <StyledShoppingItem key={item.id}>
-              <p>{item.item}</p>
-              <button onClick={() => addToPantry(item)}>Add to Pantry</button>
-              <span className="close" onClick={() => deleteItem(item.id)}>
-                &times;
-              </span>
-            </StyledShoppingItem>
-          </>
-        ))}
-      </div>
+        <ShoppingList>
+          {shoppingList.map((item) => (
+            <>
+              <ShoppingItem key={item.id}>
+                <p>{item.item}</p>
+                <Buttons>
+                  <button
+                    onClick={() => deleteItem(item.id)}
+                    className="delete-btn"
+                  >
+                    Delete
+                  </button>
+                  <button onClick={() => addToPantry(item)} className="add-btn">
+                    Purchased
+                  </button>
+                </Buttons>
+                {/* <Button onClick={() => addToPantry(item)}>Purchased</Button>
+                <CloseButton
+                  className="close"
+                  onClick={() => deleteItem(item.id)}
+                >
+                  &times;
+                </CloseButton> */}
+              </ShoppingItem>
+            </>
+          ))}
+        </ShoppingList>
+      </ListContainer>
     </>
   );
 };
 
 export default Profile;
 
-const StyledShoppingItem = styled.div`
+const ListContainer = styled.div`
+  h1 {
+    margin: 1rem;
+  }
+`;
+
+const ShoppingList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+`;
+
+const ShoppingItem = styled.div`
   display: flex;
   align-items: center;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
   p {
-    margin-right: 1rem;
+    font-size: 1.2rem;
+    flex-grow: 1;
   }
-  .close {
+`;
+
+const Buttons = styled.div`
+  .add-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .delete-btn {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 10px;
     cursor: pointer;
   }
 `;
