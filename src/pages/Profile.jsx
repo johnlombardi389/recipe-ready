@@ -58,6 +58,11 @@ const Profile = () => {
       });
   };
 
+  const addToPantry = (item) => {
+    addIngredient(item.item);
+    deleteItem(item.id);
+  };
+
   return (
     <>
       <div>
@@ -67,9 +72,7 @@ const Profile = () => {
           <>
             <StyledShoppingItem key={item.id}>
               <p>{item.item}</p>
-              <button onClick={() => addIngredient(item.item)}>
-                Add to Pantry
-              </button>
+              <button onClick={() => addToPantry(item)}>Add to Pantry</button>
               <span className="close" onClick={() => deleteItem(item.id)}>
                 &times;
               </span>
