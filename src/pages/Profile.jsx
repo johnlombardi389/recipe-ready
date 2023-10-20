@@ -43,6 +43,21 @@ const Profile = () => {
       });
   };
 
+  const addIngredient = (newIngredient) => {
+    const userId = localStorage.getItem("user_id");
+    const data = { name: newIngredient, user: userId };
+
+    axiosInstance
+      .post("ingredients/", data)
+      .then((response) => {
+        console.log("Added item to pantry");
+      })
+      .catch((error) => {
+        console.error("Error adding ingredient:", error);
+        console.log(error.response.data);
+      });
+  };
+
   return (
     <>
       <div>
@@ -52,6 +67,9 @@ const Profile = () => {
           <>
             <StyledShoppingItem key={item.id}>
               <p>{item.item}</p>
+              <button onClick={() => addIngredient(item.item)}>
+                Add to Pantry
+              </button>
               <span className="close" onClick={() => deleteItem(item.id)}>
                 &times;
               </span>

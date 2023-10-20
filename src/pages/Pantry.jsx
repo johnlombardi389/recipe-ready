@@ -56,7 +56,7 @@ const Pantry = () => {
     const data = { name: newIngredient, user: userId };
 
     axiosInstance
-      .post("ingredients/", data) // Use axiosInstance and remove the base URL
+      .post("ingredients/", data)
       .then((response) => {
         fetchIngredients(); // Refresh the ingredient list
       })
