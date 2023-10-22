@@ -9,6 +9,7 @@ import Login from "./Login";
 
 const Profile = () => {
   const [shoppingList, setShoppingList] = useState([]);
+  const [newItem, setNewItem] = useState("");
 
   const { isLoggedIn } = useAuth();
 
@@ -63,10 +64,35 @@ const Profile = () => {
     deleteItem(item.id);
   };
 
+  const handleNewInputChange = (e) => {
+    setNewItem(e.target.value);
+  };
+
+  const handleAddNewItem = () => {
+    if (newItem.trim() !== "") {
+      console.log(newItem);
+      addIngredient(newItem);
+      setNewItem("");
+      fetchShoppingList();
+    }
+  };
+
   return (
     <>
       <ListContainer>
         <h1>Your Shopping List</h1>
+
+        <h3>Add more items</h3>
+        <NewShoppingItem>
+          <input
+            type="text"
+            placeholder="Enter a new item"
+            value={newItem}
+            onChange={handleNewInputChange}
+          />
+          <button onClick={handleAddNewItem}>Add Item</button>
+        </NewShoppingItem>
+
         <ShoppingList>
           {shoppingList.map((item) => (
             <>
@@ -104,6 +130,27 @@ export default Profile;
 const ListContainer = styled.div`
   h1 {
     margin: 1rem;
+  }
+`;
+
+const NewShoppingItem = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
   }
 `;
 

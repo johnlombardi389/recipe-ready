@@ -4,6 +4,7 @@ import axios from "axios";
 import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
+import veggies from "../assets/veggies.jpg";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -69,33 +70,46 @@ const Login = () => {
   return (
     <LoginContainer>
       {!isLoggedIn ? (
-        <StyledForm onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={credentials.username}
-              onChange={handleChange}
-            />
-          </div>
+        <>
+          <SidesContainer>
+            <div className="left-side">
+              <ImageWrapper>
+                <img src={veggies} alt="vegetables" />
+              </ImageWrapper>
+            </div>
+            <div className="right-side">
+              <StyledForm onSubmit={handleSubmit}>
+                <FormWrapper>
+                  <div>
+                    <label htmlFor="username">Username</label>
+                    <input
+                      type="text"
+                      id="username"
+                      name="username"
+                      value={credentials.username}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={credentials.password}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">Login</button>
-          <Link className="register" to="/register">
-            Don't have an account? Sign up here
-          </Link>
-        </StyledForm>
+                  <div>
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      value={credentials.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <button type="submit">Log In</button>
+                  <Link className="register" to="/register">
+                    Don't have an account? Sign up here
+                  </Link>
+                </FormWrapper>
+              </StyledForm>
+            </div>
+          </SidesContainer>
+        </>
       ) : (
         <button onClick={handleLogout}>Logout</button>
       )}
@@ -107,21 +121,54 @@ export default Login;
 
 const LoginContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
+  justify-content: space-around;
   margin: 2rem auto;
-  max-width: 300px;
-  padding: 1.5rem;
+  max-width: 1000px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+`;
+
+const SidesContainer = styled.div`
+  display: flex;
+  .left-side {
+    flex: 1;
+  }
+  .right-side {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+`;
+
+const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   label {
     font-size: 1rem;
   }
@@ -144,6 +191,7 @@ const StyledForm = styled.form`
     border-radius: 5px;
     cursor: pointer;
     margin: 1rem 0;
+    width: 100%;
   }
 
   .register {
@@ -154,3 +202,5 @@ const StyledForm = styled.form`
     }
   }
 `;
+
+// image credits: https://unsplash.com/@sarascarpa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
