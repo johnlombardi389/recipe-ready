@@ -126,10 +126,10 @@ const LoginContainer = styled.div`
   justify-content: space-around;
   margin: 2rem auto;
   max-width: 1000px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 0.5rem;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
   overflow: hidden;
 `;
 
@@ -171,17 +171,16 @@ const StyledForm = styled.form`
   height: 100%;
   label {
     font-family: "Mukta Vaani", sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 200;
   }
 
   input {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1.25px solid #ccc;
     border-radius: 0.5rem;
     margin: 0.25rem 0 1.5rem 0;
-    padding: 0.5rem;
+    padding: 0.75rem;
     font-family: "Maven Pro", sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -206,6 +205,7 @@ const StyledForm = styled.form`
     color: grey;
     font-family: "Maven Pro", sans-serif;
     font-size: 0.85rem;
+    font-weight: 400;
     &:hover {
       color: black;
     }
