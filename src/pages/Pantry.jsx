@@ -72,13 +72,10 @@ const Pantry = () => {
 
   return (
     <>
-      <PageTitle>
-        <h1>Your Virtual Pantry</h1>
-      </PageTitle>
       {isLoggedIn ? (
         <>
           <StyledTitleSection>
-            <div className="title">
+            <div className="date">
               <p>Today is {formattedDate}</p>
             </div>
             <div className="btns">
@@ -89,6 +86,10 @@ const Pantry = () => {
               <IngredientModal newIngredient={newIngredient} />
             </div>
           </StyledTitleSection>
+
+          <PantryTitle>
+            <h1>Your Pantry</h1>
+          </PantryTitle>
 
           {ingredients.length != 0 ? (
             <IngredientsGrid>
@@ -116,31 +117,52 @@ const Pantry = () => {
 
 export default Pantry;
 
-const PageTitle = styled.div`
-  text-align: center;
-  margin-bottom: 2rem;
-`;
-
 const StyledTitleSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1rem;
+  margin: 2rem 1rem;
   p {
     font-size: 1.2rem;
+  }
+  .date {
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
   }
   .btns {
     display: flex;
     align-items: center;
 
     .recipe-btn {
-      background-color: red;
       padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-size: 1rem;
       text-decoration: none;
       margin-right: 1rem;
+      background-color: #0073e6;
+      color: white;
+      padding: 0.25rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-family: "Mukta Vaani", sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      transition: all 0.3s;
+      &:hover {
+        background-color: yellow;
+        color: purple;
+      }
     }
+  }
+`;
+
+const PantryTitle = styled.div`
+  text-align: center;
+  h1 {
+    font-size: 2rem;
+    color: black;
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
   }
 `;
 

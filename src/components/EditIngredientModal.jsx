@@ -106,7 +106,9 @@ const EditIngredientModal = ({
               </div>
             </StyledForm>
             <FormButtons>
-              <button onClick={deleteCurrent}>Delete</button>
+              <button onClick={deleteCurrent} className="delete-butt">
+                Delete
+              </button>
               <div className="edit-butts">
                 <button className="cancel-butt" onClick={closeModal}>
                   Cancel
@@ -126,17 +128,18 @@ const EditIngredientModal = ({
 export default EditIngredientModal;
 
 const StyledButton = styled.button`
-  /* background-color: lightblue;
-  color: darkgreen;
-  padding: 0.15rem 0.75rem;
-  cursor: pointer; */
-
   background: none;
   border: none;
   color: #f4b183;
   text-decoration: underline;
   font-size: 0.85rem;
   cursor: pointer;
+  font-family: "Mukta Vaani", sans-serif;
+  font-weight: 400;
+  transition: all 0.3s;
+  &:hover {
+    color: purple;
+  }
 `;
 
 const StyledModal = styled.div`
@@ -164,8 +167,10 @@ const StyledModal = styled.div`
       margin-bottom: 2rem;
 
       h2 {
-        font-size: 2rem;
-        color: pink;
+        font-size: 1.25rem;
+        color: black;
+        font-family: "Cambay", sans-serif;
+        font-weight: 700;
       }
 
       span {
@@ -185,19 +190,23 @@ const StyledForm = styled.form`
   label {
     display: block;
     margin-bottom: 0.25rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 200;
   }
 
   input {
     width: 100%;
-    padding: 12px 16px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1rem;
+    border: 1.25px solid #ccc;
     background-color: #f7f7f7;
     color: #333;
     transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 0.5rem;
+    margin: 0.25rem 0 1.5rem 0;
+    padding: 0.75rem;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
   }
   &:focus {
     border-color: #007bff;
@@ -211,18 +220,59 @@ const FormButtons = styled.div`
   justify-content: space-between;
   margin-top: 2rem;
 
-  button {
-    font-size: 1rem;
-    padding: 0.5rem 1.25rem;
+  .delete-butt {
+    padding: 0.25rem 1rem;
+    border: none;
     cursor: pointer;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s;
+    margin-left: 1rem;
+    color: white;
+    background-color: #0073e6;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: yellow;
+      color: purple;
+    }
+  }
+
+  button {
+    padding: 0.25rem 1rem;
+    border: none;
+    cursor: pointer;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s;
   }
 
   .cancel-butt {
     background: none;
+    color: grey;
+    text-decoration: underline;
+    &:hover {
+      color: black;
+    }
   }
 
   .submit-butt {
     margin-left: 1rem;
-    background-color: pink;
+    color: white;
+    background-color: #0073e6;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: yellow;
+      color: purple;
+    }
   }
 `;

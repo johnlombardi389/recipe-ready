@@ -146,10 +146,12 @@ const NavLinks = styled.div`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   text-decoration: none;
   margin-left: 1rem;
   color: black;
+  font-family: "Mukta Vaani", sans-serif;
+  font-weight: 200;
 
   @media (max-width: 700px) {
     display: none;

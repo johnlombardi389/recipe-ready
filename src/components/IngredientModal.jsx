@@ -23,7 +23,7 @@ const IngredientModal = ({ newIngredient }) => {
 
   return (
     <>
-      <StyledButton onClick={openModal}>+ Add Ingredient</StyledButton>
+      <StyledButton onClick={openModal}>Add Ingredient</StyledButton>
       {isOpen ? (
         <StyledModal>
           <div className="modal-content">
@@ -69,18 +69,20 @@ const IngredientModal = ({ newIngredient }) => {
 export default IngredientModal;
 
 const StyledButton = styled.button`
-  background-color: yellow;
-  padding: 0.5rem 1rem;
+  text-decoration: none;
+  background-color: #0073e6;
+  color: white;
+  padding: 0.25rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
   cursor: pointer;
-  border-radius: 8px;
-  border-style: none;
-  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+  font-family: "Mukta Vaani", sans-serif;
   font-size: 1rem;
-  outline: none;
+  font-weight: 600;
   transition: all 0.3s;
   &:hover {
-    background-color: white;
-    box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+    background-color: yellow;
+    color: purple;
   }
 `;
 
@@ -109,8 +111,10 @@ const StyledModal = styled.div`
       margin-bottom: 2rem;
 
       h2 {
-        font-size: 2rem;
-        color: pink;
+        font-size: 1.25rem;
+        color: black;
+        font-family: "Cambay", sans-serif;
+        font-weight: 700;
       }
 
       span {
@@ -130,19 +134,23 @@ const StyledForm = styled.form`
   label {
     display: block;
     margin-bottom: 0.25rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 200;
   }
 
   input {
     width: 100%;
-    padding: 12px 16px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1rem;
+    border: 1.25px solid #ccc;
     background-color: #f7f7f7;
     color: #333;
     transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 0.5rem;
+    margin: 0.25rem 0 1.5rem 0;
+    padding: 0.75rem;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
   }
   &:focus {
     border-color: #007bff;
@@ -157,17 +165,37 @@ const FormButtons = styled.div`
   margin-top: 2rem;
 
   button {
-    font-size: 1rem;
-    padding: 0.5rem 1.25rem;
+    padding: 0.25rem 1rem;
+    border: none;
     cursor: pointer;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s;
   }
 
   .cancel-butt {
     background: none;
+    color: grey;
+    text-decoration: underline;
+    &:hover {
+      color: black;
+    }
   }
 
   .submit-butt {
     margin-left: 1rem;
-    background-color: pink;
+    color: white;
+    background-color: #0073e6;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: yellow;
+      color: purple;
+    }
   }
 `;
