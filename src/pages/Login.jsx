@@ -103,7 +103,7 @@ const Login = () => {
                   </div>
                   <button type="submit">Log In</button>
                   <Link className="register" to="/register">
-                    Don't have an account? Sign up here
+                    Don't have an account? Sign up
                   </Link>
                 </FormWrapper>
               </StyledForm>
@@ -170,33 +170,42 @@ const StyledForm = styled.form`
   align-items: center;
   height: 100%;
   label {
-    font-size: 1rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 200;
   }
 
   input {
     width: 100%;
     padding: 0.5rem;
-    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 0.5rem 0 1.5rem 0;
+    border-radius: 0.5rem;
+    margin: 0.25rem 0 1.5rem 0;
+    padding: 0.5rem;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
   }
 
   button {
     background-color: #0073e6;
     color: white;
     padding: 0.5rem;
-    font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     cursor: pointer;
     margin: 1rem 0;
     width: 100%;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 
   .register {
     text-align: center;
     color: grey;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 0.85rem;
     &:hover {
       color: black;
     }

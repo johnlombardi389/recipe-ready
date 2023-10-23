@@ -18,3 +18,7 @@ body {
 `;
 
 export default GlobalStyles;
+
+// font-family: 'Cambay', sans-serif;
+// font-family: 'Maven Pro', sans-serif;
+// font-family: 'Mukta Vaani', sans-serif;
