@@ -24,7 +24,6 @@ const Nav = () => {
           </div>
           <div className="right-side">
             <NavLinks>
-              <StyledNavLink to={"/"}>Home</StyledNavLink>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
               <StyledNavLink to={"/recipes"}>Recipes</StyledNavLink>
               <StyledNavLink to={"/profile"}>Profile</StyledNavLink>
