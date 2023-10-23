@@ -6,8 +6,12 @@ const NoIngredients = () => {
     <StyledContainer>
       <StyledMessage>
         <h3>No ingredients found</h3>
-        <p>
-          Get started by clicking the "+ Add Ingredient" button in the top right
+        <p className="first-text">
+          Get started by clicking the "Add Ingredient" button in the top right
+        </p>
+        <p className="second-text">
+          We'll help you manage all of the ingredients in your kitchen here and
+          then suggest recipes based on what you have
         </p>
       </StyledMessage>
     </StyledContainer>
@@ -23,15 +27,31 @@ const StyledContainer = styled.div`
   justify-content: center;
   width: 90vw;
   height: 50vh;
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.15);
   margin: 2rem auto;
   border-radius: 2rem;
+  padding: 5rem;
 `;
 
 const StyledMessage = styled.div`
   text-align: center;
   h3 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    color: black;
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+  }
+  .first-text {
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.75);
+  }
+  .second-text {
+    margin-top: 2rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
   }
 `;
