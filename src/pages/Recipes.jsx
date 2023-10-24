@@ -88,35 +88,12 @@ const Recipes = () => {
 
   return (
     <>
-      <h1>Recipes</h1>
-
       <div>
-        <h1>You could make</h1>
-        {/* <div>
-          <label htmlFor="ingredients">
-            Enter Ingredients (comma-separated):
-          </label>
-          <input
-            type="text"
-            id="ingredients"
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div> */}
-        {/* <div>
-          <label htmlFor="filter">Max Missing Ingredients:</label>
-          <input
-            type="number"
-            id="filter"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          />
-        </div> */}
+        <h1>You could make these Recipes</h1>
 
         <div>
           <label htmlFor="ranking" className="switch">
-            Filter by min ingredients:
+            Filter by min ingredients needed:
           </label>
           <input
             type="checkbox"
