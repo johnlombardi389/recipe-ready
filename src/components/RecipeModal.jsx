@@ -11,6 +11,7 @@ import {
   MdNoFood,
   MdOutlineAccessTimeFilled,
   MdPeopleAlt,
+  MdOutlineFoodBank,
 } from "react-icons/md";
 
 const RecipeModal = ({ recipe, closeModal }) => {
@@ -64,56 +65,61 @@ const RecipeModal = ({ recipe, closeModal }) => {
       });
   };
 
-  const updateRecipeBook = (recipeData) => {
-    const userId = localStorage.getItem("user_id");
-
-    const updatedRecipeData = [...existingRecipes, recipeData];
-
-    const data = { saved_recipes_data: updatedRecipeData, user: userId };
-
-    axiosInstance
-      .put("user-profile/", data)
-      .then((response) => {
-        console.log("Recipe saved");
-      })
-      .catch((error) => {
-        console.error("Error saving recipe:", error);
-        console.error("Error response:", error.response);
-      });
-  };
-
   return (
     <StyledModal>
-      <span className="close" onClick={closeModal}>
+      {/* <span className="close" onClick={closeModal}>
         &times;
-      </span>
+      </span> */}
       <div className="modal-content">
         <img src={recipe.details.image} alt={recipe.title} />
 
+        <div className="stats">
+          <div className="stat">
+            <MdOutlineFoodBank className="icons" />
+            <p>Need: {missingIngredientCount} Ingredients</p>
+          </div>
+          <div className="stat">
+            <MdOutlineAccessTimeFilled className="icons" />
+            <p>{recipe.details.readyInMinutes} minutes</p>
+          </div>
+          <div className="stat">
+            <MdPeopleAlt className="icons" />
+            <p>Serves {recipe.details.servings}</p>
+          </div>
+        </div>
+
         <div className="info">
           <div className="names">
-            <h2>{recipe.details.title}</h2>
-            <p>
+            <h2>
+              {recipe.details.title}{" "}
+              <span className="author">
+                by{" "}
+                <a href={recipe.details.sourceUrl} target="_blank">
+                  {recipe.details.sourceName}
+                </a>
+              </span>
+            </h2>
+            {/* <span>
               by{" "}
               <a href={recipe.details.sourceUrl} target="_blank">
                 {recipe.details.sourceName}
               </a>
-            </p>
+            </span> */}
           </div>
-          <div className="stats">
+          {/* <div className="stats">
             <div className="stat">
-              <MdNoFood />
+              <MdOutlineFoodBank />
               <p>Need: {missingIngredientCount} Ingredients</p>
             </div>
             <div className="stat">
-              <MdOutlineAccessTimeFilled />
+              <MdOutlineAccessTimeFilled className="icons" />
               <p>{recipe.details.readyInMinutes} minutes</p>
             </div>
             <div className="stat">
-              <MdPeopleAlt />
+              <MdPeopleAlt className="icons" />
               <p>Serves {recipe.details.servings}</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="tab-buttons">
@@ -121,7 +127,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
             className={`tab-button ${
               activeTab === "Ingredients" ? "active-tab" : ""
             }`}
-            onClick={() => handleTabClick()}
+            onClick={() => handleTabClick("Ingredients")}
           >
             Ingredients
           </button>
@@ -150,11 +156,11 @@ const RecipeModal = ({ recipe, closeModal }) => {
         </div>
       </div>
       <div className="btns">
-        <button onClick={() => updateRecipeBook(recipe)}>Save Recipe</button>
+        <button onClick={closeModal}>Close</button>
         <button
           onClick={() => updateShoppingList(recipe.details.missedIngredients)}
         >
-          Add Ingredients to Shopping List
+          Add to Shopping List
         </button>
       </div>
     </StyledModal>
@@ -211,15 +217,32 @@ const StyledModal = styled.div`
     }
 
     .names {
-      margin: 1rem 0 2rem 0;
+      margin-bottom: 1rem;
 
       h2 {
-        font-size: 1.3rem;
-        margin-bottom: 0.25rem;
+        font-family: "Cambay", sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        .author {
+          font-family: "Mukta Vaani", sans-serif;
+          font-size: 0.9rem;
+          font-weight: 200;
+          color: grey;
+          a {
+            color: grey;
+            text-decoration: underline;
+            &:hover {
+              color: blue;
+            }
+          }
+        }
       }
 
-      p {
+      /* p {
+        font-family: "Mukta Vaani", sans-serif;
         font-size: 0.9rem;
+        font-weight: 200;
         color: grey;
         a {
           color: grey;
@@ -228,20 +251,30 @@ const StyledModal = styled.div`
             color: blue;
           }
         }
-      }
+      } */
     }
 
     .stats {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
       flex-wrap: wrap;
 
+      .icons {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: grey;
+        margin-right: 0.25rem;
+      }
+
       .stat {
         display: flex;
         align-items: center;
+
         p {
+          font-family: "Maven Pro", sans-serif;
+          font-size: 0.9rem;
           margin-left: 0.25rem;
         }
       }
@@ -258,18 +291,10 @@ const StyledModal = styled.div`
       }
     }
 
-    /* .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 24px;
-      cursor: pointer;
-      color: red;
-    } */
-
     .tab-buttons {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
@@ -282,12 +307,12 @@ const StyledModal = styled.div`
 
     .tab-button {
       padding: 0.5rem 1rem;
-      margin-right: 1rem;
       cursor: pointer;
       border: none;
       background-color: transparent;
-      font-size: 1rem;
-      font-weight: bold;
+      font-family: "Mukta Vaani", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
       color: #555;
       transition: color 0.3s;
     }
@@ -301,7 +326,7 @@ const StyledModal = styled.div`
     }
 
     .tab-button:hover {
-      color: green; /* Change color on hover */
+      color: green;
     }
 
     /* CSS for the active tab's underline */
@@ -312,11 +337,11 @@ const StyledModal = styled.div`
     .active-tab::after {
       content: "";
       position: absolute;
-      bottom: -2px; /* Adjust the thickness of the underline */
+      bottom: 3px; /* Adjust the position of the underline */
       left: 0;
       width: 100%;
       height: 3px; /* Adjust the thickness of the underline */
-      background-color: green; /* Color of the underline for the active tab */
+      background-color: blue; /* Color of the underline for the active tab */
       transition: width 0.3s ease-in-out;
     }
   }

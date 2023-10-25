@@ -33,9 +33,11 @@ const IngredientsTab = ({ recipe }) => {
         {recipe.details.extendedIngredients.map((ingredient) => (
           <li key={ingredient.id}>
             {ingredient.name}:{" "}
-            {selectedUnit === "metric"
-              ? `${ingredient.measures.metric.amount} ${ingredient.measures.metric.unitLong}`
-              : `${ingredient.measures.us.amount} ${ingredient.measures.us.unitLong}`}
+            <span className="measure">
+              {selectedUnit === "metric"
+                ? `${ingredient.measures.metric.amount} ${ingredient.measures.metric.unitLong}`
+                : `${ingredient.measures.us.amount} ${ingredient.measures.us.unitLong}`}
+            </span>
           </li>
         ))}
       </StyledList>
@@ -58,12 +60,15 @@ export default IngredientsTab;
 
 const StyledIngs = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   margin-bottom: 1rem;
 `;
 
 const StyledTitle = styled.h3`
+  font-family: "Cambay", sans-serif;
+  font-weight: 700;
   font-size: 1.2rem;
+  color: blue;
 `;
 
 const UnitToggle = styled.div`
@@ -73,6 +78,9 @@ const UnitToggle = styled.div`
     border: 1px solid #ccc;
     background-color: transparent;
     cursor: pointer;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
 
     &.active {
       background-color: #ccc;
@@ -86,9 +94,17 @@ const StyledList = styled.ul`
   margin-bottom: 2rem;
 
   li {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 600;
     font-size: 1rem;
     color: #333;
     text-transform: capitalize;
+
+    .measure {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: black;
+    }
   }
 `;

@@ -10,8 +10,8 @@ const Recipe = ({ recipe, openRecipe }) => {
         {recipe.image && <img src={recipe.image} alt={recipe.title} />}
         <h3>{recipe.title}</h3>
         <div className="details">
-          <p>Need: {missingIngredientCount} Ingredients</p>
-          <p>Have: {recipe.usedIngredientCount} Ingredients </p>
+          <p>Ingredients Needed: {missingIngredientCount}</p>
+          {/* <p>Have: {recipe.usedIngredientCount} Ingredients </p> */}
         </div>
       </StyledRecipe>
     </>
@@ -27,7 +27,8 @@ const StyledRecipe = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   cursor: pointer;
 
