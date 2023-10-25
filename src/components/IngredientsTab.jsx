@@ -61,7 +61,6 @@ export default IngredientsTab;
 const StyledIngs = styled.div`
   display: flex;
   align-items: start;
-  margin-bottom: 1rem;
 `;
 
 const StyledTitle = styled.h3`
@@ -69,12 +68,13 @@ const StyledTitle = styled.h3`
   font-weight: 700;
   font-size: 1.2rem;
   color: blue;
+  margin-bottom: 1rem;
 `;
 
 const UnitToggle = styled.div`
   button {
-    margin-left: 10px;
-    padding: 5px 10px;
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.75rem;
     border: 1px solid #ccc;
     background-color: transparent;
     cursor: pointer;

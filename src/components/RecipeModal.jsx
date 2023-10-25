@@ -8,7 +8,6 @@ import SummaryTab from "./SummaryTab";
 // Style
 import styled from "styled-components";
 import {
-  MdNoFood,
   MdOutlineAccessTimeFilled,
   MdPeopleAlt,
   MdOutlineFoodBank,
@@ -67,9 +66,6 @@ const RecipeModal = ({ recipe, closeModal }) => {
 
   return (
     <StyledModal>
-      {/* <span className="close" onClick={closeModal}>
-        &times;
-      </span> */}
       <div className="modal-content">
         <img src={recipe.details.image} alt={recipe.title} />
 
@@ -99,27 +95,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
                 </a>
               </span>
             </h2>
-            {/* <span>
-              by{" "}
-              <a href={recipe.details.sourceUrl} target="_blank">
-                {recipe.details.sourceName}
-              </a>
-            </span> */}
           </div>
-          {/* <div className="stats">
-            <div className="stat">
-              <MdOutlineFoodBank />
-              <p>Need: {missingIngredientCount} Ingredients</p>
-            </div>
-            <div className="stat">
-              <MdOutlineAccessTimeFilled className="icons" />
-              <p>{recipe.details.readyInMinutes} minutes</p>
-            </div>
-            <div className="stat">
-              <MdPeopleAlt className="icons" />
-              <p>Serves {recipe.details.servings}</p>
-            </div>
-          </div> */}
         </div>
 
         <div className="tab-buttons">
@@ -182,30 +158,12 @@ const StyledModal = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 
-  .close {
-    z-index: 2000;
-    color: red;
-    top: 3rem;
-    right: 3rem;
-    width: 2rem;
-    height: 2rem;
-    font-size: 2rem;
-    position: absolute;
-    cursor: pointer;
-    background-color: pink;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .modal-content {
     background-color: #fff;
     width: 50vw;
     max-height: 85%;
     overflow-y: auto;
     padding: 2rem;
-    /* border-radius: 5px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
 
@@ -223,7 +181,7 @@ const StyledModal = styled.div`
         font-family: "Cambay", sans-serif;
         font-size: 2rem;
         font-weight: 700;
-        margin-bottom: 0.5rem;
+        margin-bottom: 2rem;
         .author {
           font-family: "Mukta Vaani", sans-serif;
           font-size: 0.9rem;
@@ -238,20 +196,6 @@ const StyledModal = styled.div`
           }
         }
       }
-
-      /* p {
-        font-family: "Mukta Vaani", sans-serif;
-        font-size: 0.9rem;
-        font-weight: 200;
-        color: grey;
-        a {
-          color: grey;
-          text-decoration: underline;
-          &:hover {
-            color: blue;
-          }
-        }
-      } */
     }
 
     .stats {
@@ -295,7 +239,7 @@ const StyledModal = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       flex-wrap: wrap;
     }
 
