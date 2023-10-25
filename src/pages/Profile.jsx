@@ -16,7 +16,6 @@ const Profile = () => {
   useEffect(() => {
     if (isLoggedIn) {
       fetchShoppingList();
-      console.log(shoppingList);
     }
   }, [isLoggedIn]);
 
@@ -46,12 +45,13 @@ const Profile = () => {
 
   const addIngredient = (newIngredient) => {
     const userId = localStorage.getItem("user_id");
-    const data = { name: newIngredient, user: userId };
+    const data = { item: newIngredient, user: userId };
 
     axiosInstance
-      .post("ingredients/", data)
+      .post("shopping-list/", data)
       .then((response) => {
-        console.log("Added item to pantry");
+        fetchShoppingList();
+        setNewItem("");
       })
       .catch((error) => {
         console.error("Error adding ingredient:", error);
@@ -70,10 +70,7 @@ const Profile = () => {
 
   const handleAddNewItem = () => {
     if (newItem.trim() !== "") {
-      console.log(newItem);
       addIngredient(newItem);
-      setNewItem("");
-      fetchShoppingList();
     }
   };
 
@@ -103,7 +100,7 @@ const Profile = () => {
                     onClick={() => deleteItem(item.id)}
                     className="delete-btn"
                   >
-                    Delete
+                    Remove
                   </button>
                   <button onClick={() => addToPantry(item)} className="add-btn">
                     Purchased

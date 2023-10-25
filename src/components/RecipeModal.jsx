@@ -16,7 +16,7 @@ import {
 const RecipeModal = ({ recipe, closeModal }) => {
   const [activeTab, setActiveTab] = useState("Ingredients");
   const [missingIngredients, setMissingIngredients] = useState([]);
-  const [existingRecipes, setExistingRecipes] = useState([]);
+  // const [existingRecipes, setExistingRecipes] = useState([]);
   const [buttonClicked, setButtonClicked] = useState(false);
 
   useEffect(() => {
@@ -40,11 +40,9 @@ const RecipeModal = ({ recipe, closeModal }) => {
       axiosInstance
         .post("shopping-list/", data)
         .then((response) => {
-          // Handle the response, e.g., update the UI or state
           console.log(`Added item: ${newItem}`);
         })
         .catch((error) => {
-          // Handle errors
           console.error("Error adding item:", error);
         });
     });
@@ -56,16 +54,16 @@ const RecipeModal = ({ recipe, closeModal }) => {
     addShoppingItems(missingIngredients);
   };
 
-  const fetchRecipeBook = () => {
-    axiosInstance
-      .get("user-profile/")
-      .then((response) => {
-        setExistingRecipes(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching items:", error);
-      });
-  };
+  // const fetchRecipeBook = () => {
+  //   axiosInstance
+  //     .get("user-profile/")
+  //     .then((response) => {
+  //       setExistingRecipes(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching items:", error);
+  //     });
+  // };
 
   return (
     <StyledModal>
