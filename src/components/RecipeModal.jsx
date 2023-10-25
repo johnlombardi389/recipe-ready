@@ -17,6 +17,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
   const [activeTab, setActiveTab] = useState("Ingredients");
   const [missingIngredients, setMissingIngredients] = useState([]);
   const [existingRecipes, setExistingRecipes] = useState([]);
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   useEffect(() => {
     setMissingIngredients(recipe.missedIngredients);
@@ -47,6 +48,8 @@ const RecipeModal = ({ recipe, closeModal }) => {
           console.error("Error adding item:", error);
         });
     });
+
+    setButtonClicked(true);
   };
 
   const updateShoppingList = () => {
@@ -113,7 +116,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
             }`}
             onClick={() => handleTabClick("Summary")}
           >
-            Summary
+            Recipe Summary
           </button>
           <button
             className={`tab-button ${
@@ -135,8 +138,9 @@ const RecipeModal = ({ recipe, closeModal }) => {
         <button onClick={closeModal}>Close</button>
         <button
           onClick={() => updateShoppingList(recipe.details.missedIngredients)}
+          disabled={buttonClicked}
         >
-          Add to Shopping List
+          {buttonClicked ? "Added to List" : "Add to Shopping List"}
         </button>
       </div>
     </StyledModal>
@@ -200,7 +204,7 @@ const StyledModal = styled.div`
 
     .stats {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       margin-bottom: 2rem;
       flex-wrap: wrap;
@@ -303,6 +307,11 @@ const StyledModal = styled.div`
     button {
       padding: 1rem 1.5rem;
       margin: 0 1rem 1rem 1rem;
+      &:disabled {
+        background-color: green;
+        color: black;
+        cursor: not-allowed;
+      }
     }
   }
 `;
