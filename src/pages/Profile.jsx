@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import axiosInstance from "../../axiosInstance";
 import { useAuth } from "../../AuthContext";
 // Style
@@ -172,6 +171,7 @@ const ShoppingItem = styled.div`
   p {
     font-size: 1.2rem;
     flex-grow: 1;
+    text-transform: capitalize;
   }
 `;
 

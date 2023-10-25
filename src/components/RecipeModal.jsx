@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import axiosInstance from "../../axiosInstance";
 // Components
 import NutritionTab from "./NutritionTab";
@@ -16,7 +15,6 @@ import {
 const RecipeModal = ({ recipe, closeModal }) => {
   const [activeTab, setActiveTab] = useState("Ingredients");
   const [missingIngredients, setMissingIngredients] = useState([]);
-  // const [existingRecipes, setExistingRecipes] = useState([]);
   const [buttonClicked, setButtonClicked] = useState(false);
 
   useEffect(() => {
@@ -53,17 +51,6 @@ const RecipeModal = ({ recipe, closeModal }) => {
   const updateShoppingList = () => {
     addShoppingItems(missingIngredients);
   };
-
-  // const fetchRecipeBook = () => {
-  //   axiosInstance
-  //     .get("user-profile/")
-  //     .then((response) => {
-  //       setExistingRecipes(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching items:", error);
-  //     });
-  // };
 
   return (
     <StyledModal>

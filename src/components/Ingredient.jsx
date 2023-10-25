@@ -60,6 +60,7 @@ const StyledIngredient = styled.div`
     font-family: "Cambay", sans-serif;
     font-weight: 700;
     color: black;
+    text-transform: capitalize;
   }
 
   .ing-details {
