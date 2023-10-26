@@ -13,7 +13,7 @@ const Recipes = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [filterByMin, setFilterByMin] = useState(false);
+  const [filterByMin, setFilterByMin] = useState(true);
 
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
@@ -47,16 +47,9 @@ const Recipes = () => {
     try {
       const rankingParam = filterByMin ? "&ranking=2" : "";
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=100&ignorePantry=true${rankingParam}`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=25&ignorePantry=true${rankingParam}`
       );
 
-      // const filteredRecipes = response.date.filter(
-      //   (recipe) => recipe.missedIngredientCount <= filter
-      // );
-
-      // filteredRecipes.sort(
-      //   (a, b) => a.missedIngredientCount - b.missedIngredientCount
-      // );
       setRecipes(response.data);
 
       console.log(response.data);

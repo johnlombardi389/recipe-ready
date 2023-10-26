@@ -74,15 +74,13 @@ const RecipeModal = ({ recipe, closeModal }) => {
 
         <div className="info">
           <div className="names">
-            <h2>
-              {recipe.details.title}{" "}
-              <span className="author">
-                by{" "}
-                <a href={recipe.details.sourceUrl} target="_blank">
-                  {recipe.details.sourceName}
-                </a>
-              </span>
-            </h2>
+            <h2>{recipe.details.title} </h2>
+            <span className="author">
+              by{" "}
+              <a href={recipe.details.sourceUrl} target="_blank">
+                {recipe.details.sourceName}
+              </a>
+            </span>
           </div>
         </div>
 
@@ -150,39 +148,58 @@ const StyledModal = styled.div`
   .modal-content {
     background-color: #fff;
     width: 50vw;
-    max-height: 85%;
+    max-height: 90%;
     overflow-y: auto;
     padding: 2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
+    @media (max-width: 1000px) {
+      padding: 1rem;
+    }
 
     img {
       width: 100%;
       height: auto;
-      flex-grow: 1;
       margin-bottom: 1rem;
     }
 
     .names {
-      margin-bottom: 1rem;
+      margin-bottom: 1.75rem;
 
       h2 {
         font-family: "Cambay", sans-serif;
-        font-size: 2rem;
+        font-size: 1.75rem;
         font-weight: 700;
-        margin-bottom: 2rem;
-        .author {
-          font-family: "Mukta Vaani", sans-serif;
-          font-size: 0.9rem;
-          font-weight: 200;
+      }
+
+      .author {
+        font-family: "Mukta Vaani", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 200;
+        color: grey;
+        a {
           color: grey;
-          a {
-            color: grey;
-            text-decoration: underline;
-            &:hover {
-              color: blue;
-            }
+          text-decoration: underline;
+          &:hover {
+            color: blue;
           }
+        }
+      }
+
+      @media (max-width: 1000px) {
+        h2 {
+          font-size: 1.2rem;
+        }
+        .author {
+          font-size: 0.85rem;
+        }
+      }
+      @media (max-width: 400px) {
+        h2 {
+          font-size: 1.1rem;
+        }
+        .author {
+          font-size: 0.75rem;
         }
       }
     }
@@ -191,14 +208,15 @@ const StyledModal = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       flex-wrap: wrap;
+      background-color: green;
+      padding: 0.5rem 0;
 
       .icons {
         width: 1.5rem;
         height: 1.5rem;
         color: grey;
-        margin-right: 0.25rem;
       }
 
       .stat {
@@ -213,12 +231,29 @@ const StyledModal = styled.div`
       }
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 1000px) {
       .stats {
-        justify-content: center;
+        padding: 0.25rem 0.25rem;
+        .icons {
+          width: 1rem;
+          height: 1rem;
+        }
         .stat {
           p {
-            margin: 0.5rem;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+    @media (max-width: 400px) {
+      .stats {
+        .icons {
+          width: 0.9rem;
+          height: 0.9rem;
+        }
+        .stat {
+          p {
+            font-size: 0.75rem;
           }
         }
       }
@@ -228,14 +263,8 @@ const StyledModal = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       flex-wrap: wrap;
-    }
-
-    @media (max-width: 475px) {
-      .tab-buttons {
-        justify-content: center;
-      }
     }
 
     .tab-button {
@@ -244,15 +273,19 @@ const StyledModal = styled.div`
       border: none;
       background-color: transparent;
       font-family: "Mukta Vaani", sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: #555;
       transition: color 0.3s;
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 600px) {
+      .tab-buttons {
+        justify-content: space-evenly;
+        align-items: center;
+      }
       .tab-button {
-        font-size: 0.85rem;
+        font-size: 1rem;
         margin-right: 0.5rem;
         padding: 0.25rem 0.75rem;
       }
@@ -286,11 +319,11 @@ const StyledModal = styled.div`
   }
 
   .btns {
-    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 0.5rem;
     button {
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1.2rem;
       margin: 0 1rem 1rem 1rem;
       &:disabled {
         background-color: green;
