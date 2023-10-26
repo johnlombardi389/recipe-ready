@@ -68,7 +68,12 @@ const StyledTitle = styled.h3`
   font-weight: 700;
   font-size: 1.2rem;
   color: blue;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const UnitToggle = styled.div`
@@ -84,6 +89,11 @@ const UnitToggle = styled.div`
 
     &.active {
       background-color: #ccc;
+    }
+
+    @media (max-width: 500px) {
+      padding: 0.15rem 0.25rem;
+      font-size: 0.75rem;
     }
   }
 `;
@@ -105,6 +115,17 @@ const StyledList = styled.ul`
       font-size: 0.9rem;
       font-weight: 400;
       color: black;
+    }
+  }
+
+  @media (max-width: 500px) {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    li {
+      font-size: 0.9rem;
+      .measure {
+        font-size: 0.8rem;
+      }
     }
   }
 `;
