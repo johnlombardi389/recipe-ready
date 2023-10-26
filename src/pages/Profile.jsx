@@ -105,13 +105,6 @@ const Profile = () => {
                     Purchased
                   </button>
                 </Buttons>
-                {/* <Button onClick={() => addToPantry(item)}>Purchased</Button>
-                <CloseButton
-                  className="close"
-                  onClick={() => deleteItem(item.id)}
-                >
-                  &times;
-                </CloseButton> */}
               </ShoppingItem>
             </>
           ))}
@@ -132,21 +125,30 @@ const ListContainer = styled.div`
 const NewShoppingItem = styled.div`
   display: flex;
   align-items: center;
-  margin: 1rem 0;
+  margin: 1rem;
+
   input {
     flex-grow: 1;
-    padding: 8px;
+    padding: 0.5rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
     font-size: 1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    height: 2rem;
+    &:focus {
+      outline: none;
+      border: 1px solid #4caf50;
+      /* box-shadow: 0 0 5px rgba(76, 175, 80, 0.7); */
+    }
   }
+
   button {
     background-color: #4caf50;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 0 0.5rem 0.5rem 0;
+    height: 2rem;
   }
 `;
 
