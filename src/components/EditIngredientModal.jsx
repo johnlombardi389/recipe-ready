@@ -114,7 +114,7 @@ const EditIngredientModal = ({
                   Cancel
                 </button>
                 <button className="submit-butt" form="modal">
-                  Submit
+                  Save
                 </button>
               </div>
             </FormButtons>
@@ -130,7 +130,7 @@ export default EditIngredientModal;
 const StyledButton = styled.button`
   background: none;
   border: none;
-  color: #f4b183;
+  color: #8c6d1f;
   text-decoration: underline;
   font-size: 0.85rem;
   cursor: pointer;
@@ -138,7 +138,7 @@ const StyledButton = styled.button`
   font-weight: 400;
   transition: all 0.3s;
   &:hover {
-    color: purple;
+    color: #5b4712;
   }
 `;
 
@@ -230,15 +230,11 @@ const FormButtons = styled.div`
     transition: all 0.3s;
     margin-left: 1rem;
     color: white;
-    background-color: #0073e6;
-    padding: 0.5rem 1rem;
+    background-color: #db3030;
     text-decoration: none;
-    padding: 0.25rem 1rem;
-    border: none;
     border-radius: 0.5rem;
     &:hover {
-      background-color: yellow;
-      color: purple;
+      background-color: #ab1e1e;
     }
   }
 
@@ -246,9 +242,6 @@ const FormButtons = styled.div`
     padding: 0.25rem 1rem;
     border: none;
     cursor: pointer;
-    font-family: "Mukta Vaani", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
     transition: all 0.3s;
   }
 
@@ -264,15 +257,15 @@ const FormButtons = styled.div`
   .submit-butt {
     margin-left: 1rem;
     color: white;
-    background-color: #0073e6;
-    padding: 0.5rem 1rem;
+    background-color: #2368a2;
     text-decoration: none;
-    padding: 0.25rem 1rem;
     border: none;
     border-radius: 0.5rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     &:hover {
-      background-color: yellow;
-      color: purple;
+      background-color: #194870;
     }
   }
 `;

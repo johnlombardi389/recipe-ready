@@ -100,7 +100,7 @@ export default Nav;
 const StyledNav = styled.nav`
   position: sticky;
   top: 0;
-  background-color: #ffd966;
+  background-color: #f97b22;
   margin-bottom: 1rem;
   z-index: 1000;
   width: 100%;

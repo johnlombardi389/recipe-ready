@@ -82,9 +82,9 @@ const Recipes = () => {
   return (
     <>
       <div>
-        <h1>You could make these Recipes</h1>
+        {/* <h1>Recipes you can make today</h1> */}
 
-        <div>
+        {/* <div>
           <label htmlFor="ranking" className="switch">
             Filter by min ingredients needed:
           </label>
@@ -94,7 +94,7 @@ const Recipes = () => {
             checked={filterByMin}
             onChange={() => setFilterByMin(!filterByMin)}
           />
-        </div>
+        </div> */}
 
         {loading && <p>Loading...</p>}
 

@@ -70,7 +70,7 @@ export default IngredientModal;
 
 const StyledButton = styled.button`
   text-decoration: none;
-  background-color: #0073e6;
+  background-color: #2368a2;
   color: white;
   padding: 0.25rem 1rem;
   border: none;
@@ -81,8 +81,7 @@ const StyledButton = styled.button`
   font-weight: 600;
   transition: all 0.3s;
   &:hover {
-    background-color: yellow;
-    color: purple;
+    background-color: #194870;
   }
 `;
 
@@ -186,16 +185,17 @@ const FormButtons = styled.div`
   .submit-butt {
     margin-left: 1rem;
     color: white;
-    background-color: #0073e6;
-    padding: 0.5rem 1rem;
+    background-color: #2368a2;
     text-decoration: none;
     padding: 0.25rem 1rem;
     border: none;
     border-radius: 0.5rem;
-    border-radius: 0.5rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
     &:hover {
-      background-color: yellow;
-      color: purple;
+      background-color: #194870;
     }
   }
 `;

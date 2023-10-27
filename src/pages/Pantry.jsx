@@ -129,6 +129,7 @@ const StyledTitleSection = styled.div`
     font-family: "Mukta Vaani", sans-serif;
     font-size: 1rem;
     font-weight: 400;
+    color: #495057;
   }
   .btns {
     display: flex;
@@ -138,7 +139,7 @@ const StyledTitleSection = styled.div`
       padding: 0.5rem 1rem;
       text-decoration: none;
       margin-right: 1rem;
-      background-color: #0073e6;
+      background-color: #589fdb;
       color: white;
       padding: 0.25rem 1rem;
       border: none;
@@ -149,8 +150,7 @@ const StyledTitleSection = styled.div`
       font-weight: 400;
       transition: all 0.3s;
       &:hover {
-        background-color: yellow;
-        color: purple;
+        background-color: #2979bc;
       }
     }
   }
@@ -160,7 +160,7 @@ const PantryTitle = styled.div`
   text-align: center;
   h1 {
     font-size: 2rem;
-    color: black;
+    color: #212429;
     font-family: "Cambay", sans-serif;
     font-weight: 700;
   }
@@ -171,4 +171,6 @@ const IngredientsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
 `;

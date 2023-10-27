@@ -45,9 +45,8 @@ const Ingredient = ({
 export default Ingredient;
 
 const StyledIngredient = styled.div`
-  background-color: white;
-  /* padding: 10px; */
-  border: 1px solid #ddd;
+  background-color: #edf1f5;
+  border: 1px solid #d3dce8;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
@@ -59,7 +58,7 @@ const StyledIngredient = styled.div`
     border-top-right-radius: 5px;
     font-family: "Cambay", sans-serif;
     font-weight: 700;
-    color: black;
+    color: #11253e;
     text-transform: capitalize;
   }
 
@@ -71,7 +70,7 @@ const StyledIngredient = styled.div`
     padding: 0 1rem 0.5rem 1rem;
     p {
       font-size: 0.85rem;
-      color: grey;
+      color: #617691;
       font-family: "Mukta Vaani", sans-serif;
       font-weight: 400;
     }

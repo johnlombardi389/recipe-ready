@@ -77,8 +77,6 @@ const Profile = () => {
     <>
       <ListContainer>
         <h1>Your Shopping List</h1>
-
-        <h3>Add more items</h3>
         <NewShoppingItem>
           <input
             type="text"
@@ -118,14 +116,19 @@ export default Profile;
 
 const ListContainer = styled.div`
   h1 {
-    margin: 1rem;
+    font-size: 2rem;
+    color: #212429;
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+    text-align: center;
   }
 `;
 
 const NewShoppingItem = styled.div`
   display: flex;
   align-items: center;
-  margin: 1rem;
+  margin: 1rem auto;
+  max-width: 1200px;
 
   input {
     flex-grow: 1;
@@ -134,21 +137,29 @@ const NewShoppingItem = styled.div`
     font-size: 1rem;
     border-radius: 0.5rem 0 0 0.5rem;
     height: 2rem;
+    margin-left: 1rem;
     &:focus {
       outline: none;
-      border: 1px solid #4caf50;
-      /* box-shadow: 0 0 5px rgba(76, 175, 80, 0.7); */
+      border: 1px solid #2368a2;
     }
   }
 
   button {
-    background-color: #4caf50;
+    background-color: #2368a2;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
     cursor: pointer;
     border-radius: 0 0.5rem 0.5rem 0;
     height: 2rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-right: 1rem;
+    &:hover {
+      background-color: #194870;
+    }
   }
 `;
 
@@ -157,13 +168,14 @@ const ShoppingList = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 2rem auto;
+  max-width: 1600px;
 `;
 
 const ShoppingItem = styled.div`
   display: flex;
   align-items: center;
-  background-color: #f4f4f4;
-  border: 1px solid #ddd;
+  background-color: #edf1f5;
+  border: 1px solid #d3dce8;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -174,25 +186,37 @@ const ShoppingItem = styled.div`
     font-size: 1.2rem;
     flex-grow: 1;
     text-transform: capitalize;
+    font-family: "Mukta Vaani", sans-serif;
+    font-weight: 400;
   }
 `;
 
 const Buttons = styled.div`
   .add-btn {
-    background-color: #4caf50;
+    background-color: #589fdb;
     color: white;
     border: none;
-    padding: 8px 16px;
-    margin: 0 10px;
+    padding: 0.25rem 0.75rem;
+    /* margin: 0 10px; */
     cursor: pointer;
     border-radius: 0.5rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #2979bc;
+    }
   }
   .delete-btn {
     background: none;
-    color: black;
+    color: #8c6d1f;
     text-decoration: underline;
     border: none;
     margin-right: 2rem;
     cursor: pointer;
+    &:hover {
+      color: #5b4712;
+    }
   }
 `;
