@@ -26,7 +26,7 @@ const Nav = () => {
             <NavLinks>
               <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
               <StyledNavLink to={"/recipes"}>Recipes</StyledNavLink>
-              <StyledNavLink to={"/profile"}>Profile</StyledNavLink>
+              <StyledNavLink to={"/profile"}>Shopping List</StyledNavLink>
               {isLoggedIn ? (
                 <>
                   <StyledNavLink to={"/"}>Logout</StyledNavLink>
@@ -41,21 +41,17 @@ const Nav = () => {
                   setExtendNav(!extendNav);
                 }}
               >
-                {extendNav ? <>&#10005;</> : <>&#8801;</>}
+                {extendNav ? (
+                  <span className="close">&#10005;</span>
+                ) : (
+                  <span className="burg">&#8801;</span>
+                )}
               </Hamburger>
             </NavLinks>
           </div>
         </NavInner>
         {extendNav && (
           <NavExtension>
-            <StyledExtendNavLink
-              to={"/"}
-              onClick={() => {
-                setExtendNav(!extendNav);
-              }}
-            >
-              Home
-            </StyledExtendNavLink>
             <StyledExtendNavLink
               to={"/pantry"}
               onClick={() => {
@@ -65,7 +61,7 @@ const Nav = () => {
               Pantry
             </StyledExtendNavLink>
             <StyledExtendNavLink
-              to={"/pantry"}
+              to={"/recipes"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
@@ -73,20 +69,20 @@ const Nav = () => {
               Recipes
             </StyledExtendNavLink>
             <StyledExtendNavLink
-              to={"/pantry"}
+              to={"/profile"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
             >
-              Manager
+              Shopping List
             </StyledExtendNavLink>
             <StyledExtendNavLink
-              to={"/pantry"}
+              to={"/"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
             >
-              Profile
+              Login
             </StyledExtendNavLink>
           </NavExtension>
         )}
@@ -104,7 +100,7 @@ const StyledNav = styled.nav`
   margin-bottom: 1rem;
   z-index: 1000;
   width: 100%;
-  height: ${(props) => (props.extendNav ? "50vh" : "3.5rem")};
+  height: ${(props) => (props.extendNav ? "40vh" : "3.5rem")};
   display: flex;
   flex-direction: column;
 
@@ -148,7 +144,7 @@ const NavLinks = styled.div`
 const StyledNavLink = styled(NavLink)`
   font-size: 1.15rem;
   text-decoration: none;
-  margin-left: 1rem;
+  margin-left: 1.2rem;
   color: black;
   font-family: "Mukta Vaani", sans-serif;
   font-weight: 200;
@@ -159,17 +155,27 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 const StyledExtendNavLink = styled(NavLink)`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-decoration: none;
-  margin: 10px;
+  margin: 0.5rem 0;
+  font-family: "Mukta Vaani", sans-serif;
+  font-weight: 200;
+  color: white;
 `;
 
 const Hamburger = styled.button`
   background: none;
   border: none;
   color: white;
-  font-size: 45px;
   cursor: pointer;
+
+  .burg {
+    font-size: 2rem;
+  }
+
+  .close {
+    font-size: 1.5rem;
+  }
 
   @media (min-width: 700px) {
     display: none;
@@ -179,7 +185,8 @@ const Hamburger = styled.button`
 const NavExtension = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
+  margin: 1rem 1rem 0 0;
 
   @media (min-width: 700px) {
     display: none;
