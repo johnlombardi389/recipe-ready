@@ -36,7 +36,7 @@ const StyledRecipe = styled.div`
   img {
     max-width: 100%;
     height: auto;
-    /* flex-grow: 1; */
+    flex-grow: 1;
     margin-bottom: 1rem;
   }
 

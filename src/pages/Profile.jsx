@@ -176,9 +176,9 @@ const ShoppingItem = styled.div`
   align-items: center;
   background-color: #edf1f5;
   border: 1px solid #d3dce8;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  margin: 0.5rem 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 1200px;
@@ -189,21 +189,29 @@ const ShoppingItem = styled.div`
     font-family: "Mukta Vaani", sans-serif;
     font-weight: 400;
   }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    p {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 const Buttons = styled.div`
+  button {
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
   .add-btn {
     background-color: #589fdb;
     color: white;
     border: none;
     padding: 0.25rem 0.75rem;
-    /* margin: 0 10px; */
-    cursor: pointer;
     border-radius: 0.5rem;
-    font-family: "Mukta Vaani", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    transition: all 0.3s;
     &:hover {
       background-color: #2979bc;
     }
@@ -214,9 +222,18 @@ const Buttons = styled.div`
     text-decoration: underline;
     border: none;
     margin-right: 2rem;
-    cursor: pointer;
     &:hover {
       color: #5b4712;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    button {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .add-btn {
+      padding: 0.15rem 0.75rem;
     }
   }
 `;
