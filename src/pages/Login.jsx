@@ -121,16 +121,19 @@ export default Login;
 
 const LoginContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: space-around;
   margin: 2rem auto;
   max-width: 1000px;
-  /* border: 1px solid #ccc; */
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
   overflow: hidden;
+
+  @media (max-width: 700px) {
+    max-width: 350px;
+    height: 50vh;
+  }
 `;
 
 const SidesContainer = styled.div`
@@ -142,6 +145,11 @@ const SidesContainer = styled.div`
     flex: 1;
     background-color: #fff;
     border-radius: 0 0.5rem 0.5rem 0;
+  }
+  @media (max-width: 700px) {
+    .left-side {
+      display: none;
+    }
   }
 `;
 
@@ -187,7 +195,7 @@ const StyledForm = styled.form`
   }
 
   button {
-    background-color: #0073e6;
+    background-color: #2368a2;
     color: white;
     padding: 0.5rem;
     border: none;
@@ -196,8 +204,12 @@ const StyledForm = styled.form`
     margin: 1rem 0;
     width: 100%;
     font-family: "Mukta Vaani", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #194870;
+    }
   }
 
   .register {

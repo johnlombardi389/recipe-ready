@@ -76,14 +76,37 @@ const Nav = () => {
             >
               Shopping List
             </StyledExtendNavLink>
-            <StyledExtendNavLink
+            {/* <StyledExtendNavLink
               to={"/"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
             >
               Login
-            </StyledExtendNavLink>
+            </StyledExtendNavLink> */}
+            {isLoggedIn ? (
+              <>
+                <StyledExtendNavLink
+                  to={"/"}
+                  onClick={() => {
+                    setExtendNav(!extendNav);
+                  }}
+                >
+                  Logout
+                </StyledExtendNavLink>
+              </>
+            ) : (
+              <>
+                <StyledExtendNavLink
+                  to={"/"}
+                  onClick={() => {
+                    setExtendNav(!extendNav);
+                  }}
+                >
+                  Login
+                </StyledExtendNavLink>
+              </>
+            )}
           </NavExtension>
         )}
       </StyledNav>

@@ -87,7 +87,7 @@ const Register = () => {
                     required
                   />
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit">Sign Up</button>
                 <Link className="register" to="/">
                   Already have an account? Log in
                 </Link>
@@ -95,42 +95,6 @@ const Register = () => {
             </StyledForm>
           </div>
         </SidesContainer>
-        {/* <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit">Register</button>
-        </form> */}
       </RegisterContainer>
     </>
   );
@@ -148,6 +112,11 @@ const RegisterContainer = styled.div`
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
   overflow: hidden;
+
+  @media (max-width: 700px) {
+    max-width: 350px;
+    height: 70vh;
+  }
 `;
 
 const SidesContainer = styled.div`
@@ -159,6 +128,11 @@ const SidesContainer = styled.div`
     flex: 1;
     background-color: #fff;
     border-radius: 0 0.5rem 0.5rem 0;
+  }
+  @media (max-width: 700px) {
+    .left-side {
+      display: none;
+    }
   }
 `;
 
@@ -207,7 +181,7 @@ const StyledForm = styled.form`
   }
 
   button {
-    background-color: #0073e6;
+    background-color: #2368a2;
     color: white;
     padding: 0.5rem;
     border: none;
@@ -216,8 +190,12 @@ const StyledForm = styled.form`
     margin: 1rem 0;
     width: 100%;
     font-family: "Mukta Vaani", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #194870;
+    }
   }
 
   .register {
