@@ -122,8 +122,17 @@ const StyledTitleSection = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 2rem 1rem;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
   p {
     font-size: 1.2rem;
+  }
+  @media (max-width: 1000px) {
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
   }
   .date {
     font-family: "Mukta Vaani", sans-serif;
@@ -163,6 +172,11 @@ const PantryTitle = styled.div`
     color: #212429;
     font-family: "Cambay", sans-serif;
     font-weight: 700;
+  }
+  @media (max-width: 1000px) {
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 `;
 
