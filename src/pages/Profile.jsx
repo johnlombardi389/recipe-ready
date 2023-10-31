@@ -7,10 +7,9 @@ import styled from "styled-components";
 import Login from "./Login";
 
 const Profile = () => {
+  const { isLoggedIn } = useAuth();
   const [shoppingList, setShoppingList] = useState([]);
   const [newItem, setNewItem] = useState("");
-
-  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -75,39 +74,46 @@ const Profile = () => {
 
   return (
     <>
-      <ListContainer>
-        <h1>Your Shopping List</h1>
-        <NewShoppingItem>
-          <input
-            type="text"
-            placeholder="Enter a new item"
-            value={newItem}
-            onChange={handleNewInputChange}
-          />
-          <button onClick={handleAddNewItem}>Add Item</button>
-        </NewShoppingItem>
+      {isLoggedIn ? (
+        <ListContainer>
+          <h1>Your Shopping List</h1>
+          <NewShoppingItem>
+            <input
+              type="text"
+              placeholder="Enter a new item"
+              value={newItem}
+              onChange={handleNewInputChange}
+            />
+            <button onClick={handleAddNewItem}>Add Item</button>
+          </NewShoppingItem>
 
-        <ShoppingList>
-          {shoppingList.map((item) => (
-            <>
-              <ShoppingItem key={item.id}>
-                <p>{item.item}</p>
-                <Buttons>
-                  <button
-                    onClick={() => deleteItem(item.id)}
-                    className="delete-btn"
-                  >
-                    Remove
-                  </button>
-                  <button onClick={() => addToPantry(item)} className="add-btn">
-                    Purchased
-                  </button>
-                </Buttons>
-              </ShoppingItem>
-            </>
-          ))}
-        </ShoppingList>
-      </ListContainer>
+          <ShoppingList>
+            {shoppingList.map((item) => (
+              <>
+                <ShoppingItem key={item.id}>
+                  <p>{item.item}</p>
+                  <Buttons>
+                    <button
+                      onClick={() => deleteItem(item.id)}
+                      className="delete-btn"
+                    >
+                      Remove
+                    </button>
+                    <button
+                      onClick={() => addToPantry(item)}
+                      className="add-btn"
+                    >
+                      Purchased
+                    </button>
+                  </Buttons>
+                </ShoppingItem>
+              </>
+            ))}
+          </ShoppingList>
+        </ListContainer>
+      ) : (
+        <Login />
+      )}
     </>
   );
 };

@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosInstance from "../../axiosInstance";
+import { useAuth } from "../../AuthContext";
 // Components
 import Recipe from "../components/Recipe";
 import RecipeModal from "../components/RecipeModal";
+// Pages
+import Login from "./Login";
 // Style
 import styled from "styled-components";
 
 const Recipes = () => {
+  const { isLoggedIn } = useAuth();
   const [ingredients, setIngredients] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -18,8 +22,10 @@ const Recipes = () => {
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
   useEffect(() => {
-    fetchIngredients();
-  }, []);
+    if (isLoggedIn) {
+      fetchIngredients();
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     console.log(ingredients);
@@ -81,40 +87,30 @@ const Recipes = () => {
 
   return (
     <>
-      <div>
-        {/* <h1>Recipes you can make today</h1> */}
+      {isLoggedIn ? (
+        <div>
+          {loading && <p>Loading...</p>}
 
-        {/* <div>
-          <label htmlFor="ranking" className="switch">
-            Filter by min ingredients needed:
-          </label>
-          <input
-            type="checkbox"
-            id="ranking"
-            checked={filterByMin}
-            onChange={() => setFilterByMin(!filterByMin)}
-          />
-        </div> */}
+          <RecipesGrid>
+            {recipes.map((recipe) => (
+              <Recipe
+                key={recipe.id}
+                recipe={recipe}
+                openRecipe={handleRecipeClick}
+              />
+            ))}
+          </RecipesGrid>
 
-        {loading && <p>Loading...</p>}
-
-        <RecipesGrid>
-          {recipes.map((recipe) => (
-            <Recipe
-              key={recipe.id}
-              recipe={recipe}
-              openRecipe={handleRecipeClick}
+          {modalOpen && selectedRecipe && (
+            <RecipeModal
+              recipe={selectedRecipe}
+              closeModal={() => setModalOpen(false)}
             />
-          ))}
-        </RecipesGrid>
-
-        {modalOpen && selectedRecipe && (
-          <RecipeModal
-            recipe={selectedRecipe}
-            closeModal={() => setModalOpen(false)}
-          />
-        )}
-      </div>
+          )}
+        </div>
+      ) : (
+        <Login />
+      )}
     </>
   );
 };
