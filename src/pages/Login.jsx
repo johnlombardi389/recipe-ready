@@ -113,7 +113,7 @@ const Login = () => {
         </>
       ) : (
         <LogoutWrapper>
-          <p>Enjoy your meal</p>
+          <h2>Enjoy your meal</h2>
 
           <button onClick={handleLogout}>Log Out</button>
 
@@ -237,8 +237,17 @@ const LogoutWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  p {
+  h2 {
     font-size: 2rem;
+    color: #212429;
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+    padding: 2rem;
+  }
+  @media (max-width: 1000px) {
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 
   button {
@@ -260,6 +269,7 @@ const LogoutWrapper = styled.div`
   img {
     max-width: 100%;
     max-height: 100%;
+    margin-top: 2rem;
   }
 `;
 
