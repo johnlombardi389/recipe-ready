@@ -5,6 +5,7 @@ import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
 import veggies from "../assets/veggies.jpg";
+import dinner from "../assets/dinner.jpg";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -111,7 +112,13 @@ const Login = () => {
           </SidesContainer>
         </>
       ) : (
-        <button onClick={handleLogout}>Logout</button>
+        <LogoutWrapper>
+          <p>Enjoy your meal</p>
+
+          <button onClick={handleLogout}>Log Out</button>
+
+          <img src={dinner} alt="Family Dinner" />
+        </LogoutWrapper>
       )}
     </LoginContainer>
   );
@@ -224,4 +231,37 @@ const StyledForm = styled.form`
   }
 `;
 
+const LogoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 2rem;
+  }
+
+  button {
+    font-family: "Mukta Vaani", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: #589fdb;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: #2979bc;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+`;
+
 // image credits: https://unsplash.com/@sarascarpa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
+// image credits: https://www.pexels.com/@august-de-richelieu/   Photo by August de Richelieu: https://www.pexels.com/photo/family-preparing-food-in-the-kitchen-4262010/

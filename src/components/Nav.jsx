@@ -29,11 +29,11 @@ const Nav = () => {
               <StyledNavLink to={"/profile"}>Shopping List</StyledNavLink>
               {isLoggedIn ? (
                 <>
-                  <StyledNavLink to={"/"}>Logout</StyledNavLink>
+                  <StyledNavLink to={"/"}>Log Out</StyledNavLink>
                 </>
               ) : (
                 <>
-                  <StyledNavLink to={"/"}>Login</StyledNavLink>
+                  <StyledNavLink to={"/"}>Log In</StyledNavLink>
                 </>
               )}
               <Hamburger
@@ -84,7 +84,7 @@ const Nav = () => {
                     setExtendNav(!extendNav);
                   }}
                 >
-                  Logout
+                  Log Out
                 </StyledExtendNavLink>
               </>
             ) : (
@@ -95,7 +95,7 @@ const Nav = () => {
                     setExtendNav(!extendNav);
                   }}
                 >
-                  Login
+                  Log In
                 </StyledExtendNavLink>
               </>
             )}
