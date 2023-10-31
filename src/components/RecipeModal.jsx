@@ -60,7 +60,7 @@ const RecipeModal = ({ recipe, closeModal }) => {
         <div className="stats">
           <div className="stat">
             <MdOutlineFoodBank className="icons" />
-            <p>Need: {missingIngredientCount} Ingredients</p>
+            <p>Need {missingIngredientCount}</p>
           </div>
           <div className="stat">
             <MdOutlineAccessTimeFilled className="icons" />

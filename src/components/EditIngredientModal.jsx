@@ -228,7 +228,6 @@ const FormButtons = styled.div`
     font-size: 1rem;
     font-weight: 400;
     transition: all 0.3s;
-    margin-left: 1rem;
     color: white;
     background-color: #db3030;
     text-decoration: none;

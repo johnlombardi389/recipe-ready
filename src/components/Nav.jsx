@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
 // Style
@@ -76,14 +76,6 @@ const Nav = () => {
             >
               Shopping List
             </StyledExtendNavLink>
-            {/* <StyledExtendNavLink
-              to={"/"}
-              onClick={() => {
-                setExtendNav(!extendNav);
-              }}
-            >
-              Login
-            </StyledExtendNavLink> */}
             {isLoggedIn ? (
               <>
                 <StyledExtendNavLink
@@ -182,7 +174,7 @@ const StyledExtendNavLink = styled(NavLink)`
   text-decoration: none;
   margin: 0.5rem 0;
   font-family: "Mukta Vaani", sans-serif;
-  font-weight: 200;
+  font-weight: 400;
   color: white;
 `;
 
@@ -191,9 +183,10 @@ const Hamburger = styled.button`
   border: none;
   color: white;
   cursor: pointer;
+  margin-bottom: 0.5rem;
 
   .burg {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .close {
