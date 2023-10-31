@@ -179,7 +179,7 @@ const StyledExtendNavLink = styled(NavLink)`
 `;
 
 const Hamburger = styled.button`
-  background: none;
+  background: none !important;
   border: none;
   color: white;
   cursor: pointer;

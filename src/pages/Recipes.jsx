@@ -53,7 +53,7 @@ const Recipes = () => {
     try {
       const rankingParam = filterByMin ? "&ranking=2" : "";
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=25&ignorePantry=true${rankingParam}`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=35&ignorePantry=true${rankingParam}`
       );
 
       setRecipes(response.data);
