@@ -168,9 +168,9 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1.15rem;
   text-decoration: none;
   margin-left: 1.2rem;
-  color: black;
+  color: white;
   font-family: "Mukta Vaani", sans-serif;
-  font-weight: 200;
+  font-weight: 400;
 
   @media (max-width: 700px) {
     display: none;
