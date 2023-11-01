@@ -3,7 +3,7 @@ import axiosInstance from "../../axiosInstance";
 // Components
 import NutritionTab from "./NutritionTab";
 import IngredientsTab from "./IngredientsTab";
-import SummaryTab from "./SummaryTab";
+import DirectionsTab from "./DirectionsTab";
 // Style
 import styled from "styled-components";
 import {
@@ -95,26 +95,26 @@ const RecipeModal = ({ recipe, closeModal }) => {
           </button>
           <button
             className={`tab-button ${
-              activeTab === "Summary" ? "active-tab" : ""
+              activeTab === "Directions" ? "active-tab" : ""
             }`}
-            onClick={() => handleTabClick("Summary")}
+            onClick={() => handleTabClick("Directions")}
           >
-            Recipe Summary
+            Directions
           </button>
-          <button
+          {/* <button
             className={`tab-button ${
               activeTab === "Nutrition" ? "active-tab" : ""
             }`}
             onClick={() => handleTabClick("Nutrition")}
           >
             Nutrition
-          </button>
+          </button> */}
         </div>
 
         <div className="tab-content">
-          {activeTab === "Nutrition" && <NutritionTab recipe={recipe} />}
+          {/* {activeTab === "Nutrition" && <NutritionTab recipe={recipe} />} */}
           {activeTab === "Ingredients" && <IngredientsTab recipe={recipe} />}
-          {activeTab === "Summary" && <SummaryTab recipe={recipe} />}
+          {activeTab === "Directions" && <DirectionsTab recipe={recipe} />}
         </div>
       </div>
       <div className="btns">
