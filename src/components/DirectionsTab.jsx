@@ -12,11 +12,11 @@ const DirectionsTab = ({ recipe }) => {
       /> */}
 
       <StyledDirections>
-        <ul>
+        <StyledList>
           {recipe.details.analyzedInstructions[0].steps.map((instruction) => (
             <li key={instruction.number}>{instruction.step}</li>
           ))}
-        </ul>
+        </StyledList>
       </StyledDirections>
     </>
   );
@@ -25,5 +25,28 @@ const DirectionsTab = ({ recipe }) => {
 export default DirectionsTab;
 
 const StyledDirections = styled.div`
-  font-size: 1rem;
+  display: flex;
+  align-items: start;
+  margin-top: 3rem;
+`;
+
+const StyledList = styled.ol`
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+
+  li {
+    margin-bottom: 1rem;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  @media (max-width: 500px) {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    li {
+      font-size: 0.9rem;
+    }
+  }
 `;

@@ -210,8 +210,8 @@ const StyledModal = styled.div`
       align-items: center;
       margin-bottom: 1rem;
       flex-wrap: wrap;
-      background-color: green;
-      padding: 0.5rem 0;
+      background-color: #edf1f5;
+      border: 1px solid #d3dce8;
 
       .icons {
         width: 1.5rem;
@@ -261,7 +261,7 @@ const StyledModal = styled.div`
 
     .tab-buttons {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       margin-bottom: 1rem;
       flex-wrap: wrap;
@@ -280,10 +280,6 @@ const StyledModal = styled.div`
     }
 
     @media (max-width: 600px) {
-      .tab-buttons {
-        justify-content: space-evenly;
-        align-items: center;
-      }
       .tab-button {
         font-size: 1rem;
         margin-right: 0.5rem;
@@ -292,7 +288,7 @@ const StyledModal = styled.div`
     }
 
     .tab-button:hover {
-      color: green;
+      color: #212429;
     }
 
     /* CSS for the active tab's underline */
@@ -307,7 +303,7 @@ const StyledModal = styled.div`
       left: 0;
       width: 100%;
       height: 3px; /* Adjust the thickness of the underline */
-      background-color: blue; /* Color of the underline for the active tab */
+      background-color: #f97b22; /* Color of the underline for the active tab */
       transition: width 0.3s ease-in-out;
     }
   }
