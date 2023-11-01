@@ -5,6 +5,7 @@ import { useAuth } from "../../AuthContext";
 // Components
 import Recipe from "../components/Recipe";
 import RecipeModal from "../components/RecipeModal";
+import FirstTime from "../components/FirstTime";
 // Pages
 import Login from "./Login";
 // Style
@@ -88,26 +89,57 @@ const Recipes = () => {
   return (
     <>
       {isLoggedIn ? (
-        <div>
-          {loading && <p>Loading...</p>}
+        // <div>
+        //   {loading && <p>Loading...</p>}
 
-          <RecipesGrid>
-            {recipes.map((recipe) => (
-              <Recipe
-                key={recipe.id}
-                recipe={recipe}
-                openRecipe={handleRecipeClick}
-              />
-            ))}
-          </RecipesGrid>
+        //   <RecipesGrid>
+        //     {recipes.map((recipe) => (
+        //       <Recipe
+        //         key={recipe.id}
+        //         recipe={recipe}
+        //         openRecipe={handleRecipeClick}
+        //       />
+        //     ))}
+        //   </RecipesGrid>
 
-          {modalOpen && selectedRecipe && (
-            <RecipeModal
-              recipe={selectedRecipe}
-              closeModal={() => setModalOpen(false)}
-            />
+        //   {modalOpen && selectedRecipe && (
+        //     <RecipeModal
+        //       recipe={selectedRecipe}
+        //       closeModal={() => setModalOpen(false)}
+        //     />
+        //   )}
+        // </div>
+
+        <>
+          {ingredients.length != 0 ? (
+            <>
+              <div>
+                {loading && <p>Loading...</p>}
+
+                <RecipesGrid>
+                  {recipes.map((recipe) => (
+                    <Recipe
+                      key={recipe.id}
+                      recipe={recipe}
+                      openRecipe={handleRecipeClick}
+                    />
+                  ))}
+                </RecipesGrid>
+
+                {modalOpen && selectedRecipe && (
+                  <RecipeModal
+                    recipe={selectedRecipe}
+                    closeModal={() => setModalOpen(false)}
+                  />
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <FirstTime />
+            </>
           )}
-        </div>
+        </>
       ) : (
         <Login />
       )}

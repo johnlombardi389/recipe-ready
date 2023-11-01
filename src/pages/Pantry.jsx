@@ -120,7 +120,7 @@ const StyledTitleSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 1rem;
+  margin: 0 1rem 2rem 1rem;
   @media (max-width: 1000px) {
     flex-direction: column;
   }

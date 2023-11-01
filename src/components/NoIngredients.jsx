@@ -7,7 +7,7 @@ const NoIngredients = () => {
       <StyledMessage>
         <h3>No ingredients found</h3>
         <p className="first-text">
-          Get started by clicking the "Add Ingredient" button in the top right
+          Get started by clicking the "Add Ingredient" button
         </p>
         <p className="second-text">
           We'll help you manage all of the ingredients in your kitchen here and
