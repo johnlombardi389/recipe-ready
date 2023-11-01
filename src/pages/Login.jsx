@@ -6,6 +6,7 @@ import { useAuth } from "../../AuthContext";
 import styled from "styled-components";
 import veggies from "../assets/veggies.jpg";
 import dinner from "../assets/dinner.jpg";
+import recipebook2 from "../assets/recipebook2.jpg";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -75,7 +76,7 @@ const Login = () => {
           <SidesContainer>
             <div className="left-side">
               <ImageWrapper>
-                <img src={veggies} alt="vegetables" />
+                <img src={recipebook2} alt="Recipe book and ingredients" />
               </ImageWrapper>
             </div>
             <div className="right-side">
@@ -275,3 +276,4 @@ const LogoutWrapper = styled.div`
 
 // image credits: https://unsplash.com/@sarascarpa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
 // image credits: https://www.pexels.com/@august-de-richelieu/   Photo by August de Richelieu: https://www.pexels.com/photo/family-preparing-food-in-the-kitchen-4262010/
+// image credits Photo by Yaroslav Shuraev: https://www.pexels.com/photo/hand-of-a-person-on-an-open-book-near-fresh-vegetables-8845419/

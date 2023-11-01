@@ -122,7 +122,7 @@ export default Profile;
 
 const ListContainer = styled.div`
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #212429;
     font-family: "Cambay", sans-serif;
     font-weight: 700;
