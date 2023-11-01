@@ -30,8 +30,8 @@ const IngredientsTab = ({ recipe }) => {
       </StyledIngs>
 
       <StyledList>
-        {recipe.details.extendedIngredients.map((ingredient) => (
-          <li key={ingredient.id}>
+        {recipe.details.extendedIngredients.map((ingredient, index) => (
+          <li key={`${ingredient.id}_${index}`}>
             {ingredient.name}:{" "}
             <span className="measure">
               {selectedUnit === "metric"
@@ -45,8 +45,8 @@ const IngredientsTab = ({ recipe }) => {
       <StyledTitle>You Need to Get</StyledTitle>
       <StyledList>
         {recipe.missedIngredients ? (
-          recipe.missedIngredients.map((ingredient) => (
-            <li key={ingredient.id}>{ingredient.name}</li>
+          recipe.missedIngredients.map((ingredient, index) => (
+            <li key={index}>{ingredient.name}</li>
           ))
         ) : (
           <li>No missing Ingredients</li>
