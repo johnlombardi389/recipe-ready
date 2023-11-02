@@ -1,4 +1,3 @@
-import { useState } from "react";
 // Style
 import styled from "styled-components";
 
@@ -11,7 +10,6 @@ const Recipe = ({ recipe, openRecipe }) => {
         <h3>{recipe.title}</h3>
         <div className="details">
           <p>Ingredients Needed: {missingIngredientCount}</p>
-          {/* <p>Have: {recipe.usedIngredientCount} Ingredients </p> */}
         </div>
       </StyledRecipe>
     </>

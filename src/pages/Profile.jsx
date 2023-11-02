@@ -32,7 +32,6 @@ const Profile = () => {
     axiosInstance
       .delete(`shopping-list/${id}`)
       .then(() => {
-        // After successful deletion, refresh
         fetchShoppingList();
       })
       .catch((error) => {

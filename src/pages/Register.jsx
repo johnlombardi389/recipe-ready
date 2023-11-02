@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 // Style
 import styled from "styled-components";
-import veggies from "../assets/veggies.jpg";
 import groceryone from "../assets/grocery1.jpg";
 
 const Register = () => {
@@ -34,8 +33,7 @@ const Register = () => {
         localStorage.setItem("refresh_token", refresh);
 
         console.log("Registration successful", response.data);
-        // redirect
-        navigate("/pantry");
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error registering user:", error);

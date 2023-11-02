@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosInstance from "../../axiosInstance";
 // Components
-import NutritionTab from "./NutritionTab";
 import IngredientsTab from "./IngredientsTab";
 import DirectionsTab from "./DirectionsTab";
 // Style
@@ -30,11 +29,9 @@ const RecipeModal = ({ recipe, closeModal }) => {
   const addShoppingItems = (newItems) => {
     const userId = localStorage.getItem("user_id");
 
-    // Iterate over the array of new items
     newItems.forEach((newItem) => {
       const data = { item: newItem.name, user: userId };
 
-      // Send a POST request to add the shopping item
       axiosInstance
         .post("shopping-list/", data)
         .then((response) => {
@@ -103,18 +100,9 @@ const RecipeModal = ({ recipe, closeModal }) => {
           >
             Directions
           </button>
-          {/* <button
-            className={`tab-button ${
-              activeTab === "Nutrition" ? "active-tab" : ""
-            }`}
-            onClick={() => handleTabClick("Nutrition")}
-          >
-            Nutrition
-          </button> */}
         </div>
 
         <div className="tab-content">
-          {/* {activeTab === "Nutrition" && <NutritionTab recipe={recipe} />} */}
           {activeTab === "Ingredients" && <IngredientsTab recipe={recipe} />}
           {activeTab === "Directions" && <DirectionsTab recipe={recipe} />}
         </div>

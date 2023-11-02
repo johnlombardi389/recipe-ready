@@ -77,5 +77,3 @@ const StyledContainer = styled.div`
     margin-top: 2rem;
   }
 `;
-
-// image credits Photo by Yaroslav Shuraev: https://www.pexels.com/photo/fresh-vegetables-and-fruits-on-the-table-8844888/

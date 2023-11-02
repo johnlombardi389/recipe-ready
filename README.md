@@ -66,3 +66,11 @@ John Lombardi
 - [GitHub](https://github.com/johnlombardi389)
 
 ### Credits
+
+Photo by Yaroslav Shuraev: https://www.pexels.com/photo/fresh-vegetables-and-fruits-on-the-table-8844888/
+
+Photo by Yaroslav Shuraev: https://www.pexels.com/photo/hand-of-a-person-on-an-open-book-near-fresh-vegetables-8845419/
+
+Photo by August de Richelieu: https://www.pexels.com/photo/family-preparing-food-in-the-kitchen-4262010/
+
+Photo by Kevin Malik: https://www.pexels.com/photo/consumer-looking-at-a-product-9016554/

@@ -12,7 +12,7 @@ const IngredientsTab = ({ recipe }) => {
   return (
     <>
       <StyledIngs>
-        <StyledTitle>Getting Ready</StyledTitle>
+        <StyledTitle>Get Ready</StyledTitle>
         <UnitToggle>
           <button
             onClick={() => toggleUnit("metric")}
@@ -68,7 +68,6 @@ const StyledTitle = styled.h3`
   font-family: "Cambay", sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
-  /* color: #212429; */
   color: #f97b22;
   margin-bottom: 1.5rem;
 

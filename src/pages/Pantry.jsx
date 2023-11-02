@@ -35,9 +35,9 @@ const Pantry = () => {
 
   const deleteIngredients = (id) => {
     axiosInstance
-      .delete(`ingredients/${id}`) // Use axiosInstance and remove the base URL
+      .delete(`ingredients/${id}`)
       .then(() => {
-        // After successful deletion, refresh the ingredients list
+        // Refresh the ingredients list
         fetchIngredients();
       })
       .catch((error) => {
@@ -57,7 +57,7 @@ const Pantry = () => {
     axiosInstance
       .post("ingredients/", data)
       .then((response) => {
-        fetchIngredients(); // Refresh the ingredient list
+        fetchIngredients();
       })
       .catch((error) => {
         console.error("Error adding ingredient:", error);

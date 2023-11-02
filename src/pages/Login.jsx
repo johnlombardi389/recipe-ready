@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../AuthContext";
 // Style
 import styled from "styled-components";
-import veggies from "../assets/veggies.jpg";
 import dinner from "../assets/dinner.jpg";
 import recipebook2 from "../assets/recipebook2.jpg";
 
@@ -29,9 +28,8 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8000/api/login/", credentials) // Updated endpoint
+      .post("http://localhost:8000/api/login/", credentials)
       .then((response) => {
-        // save access token to local storage
         const { access, refresh } = response.data;
 
         // Update the login function to include the access token
@@ -48,7 +46,7 @@ const Login = () => {
           .then((userResponse) => {
             const { id } = userResponse.data;
             localStorage.setItem("user_id", id);
-            // redirect
+
             navigate("/pantry");
           })
           .catch((error) => {
@@ -273,7 +271,3 @@ const LogoutWrapper = styled.div`
     margin-top: 2rem;
   }
 `;
-
-// image credits: https://unsplash.com/@sarascarpa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
-// image credits: https://www.pexels.com/@august-de-richelieu/   Photo by August de Richelieu: https://www.pexels.com/photo/family-preparing-food-in-the-kitchen-4262010/
-// image credits Photo by Yaroslav Shuraev: https://www.pexels.com/photo/hand-of-a-person-on-an-open-book-near-fresh-vegetables-8845419/
