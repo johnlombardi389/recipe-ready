@@ -89,32 +89,11 @@ const Recipes = () => {
   return (
     <>
       {isLoggedIn ? (
-        // <div>
-        //   {loading && <p>Loading...</p>}
-
-        //   <RecipesGrid>
-        //     {recipes.map((recipe) => (
-        //       <Recipe
-        //         key={recipe.id}
-        //         recipe={recipe}
-        //         openRecipe={handleRecipeClick}
-        //       />
-        //     ))}
-        //   </RecipesGrid>
-
-        //   {modalOpen && selectedRecipe && (
-        //     <RecipeModal
-        //       recipe={selectedRecipe}
-        //       closeModal={() => setModalOpen(false)}
-        //     />
-        //   )}
-        // </div>
-
         <>
           {ingredients.length != 0 ? (
             <>
               <div>
-                {loading && <p>Loading...</p>}
+                {loading && <LoadingMessage>Loading...</LoadingMessage>}
 
                 <RecipesGrid>
                   {recipes.map((recipe) => (
@@ -154,4 +133,12 @@ const RecipesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1rem;
+`;
+
+const LoadingMessage = styled.p`
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  font-family: "Cambay", sans-serif;
+  font-weight: 700;
 `;
