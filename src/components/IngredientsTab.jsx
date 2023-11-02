@@ -12,7 +12,7 @@ const IngredientsTab = ({ recipe }) => {
   return (
     <>
       <StyledIngs>
-        <StyledTitle>Recipe Ingredients</StyledTitle>
+        <StyledTitle>Getting Ready</StyledTitle>
         <UnitToggle>
           <button
             onClick={() => toggleUnit("metric")}
@@ -61,13 +61,15 @@ export default IngredientsTab;
 const StyledIngs = styled.div`
   display: flex;
   align-items: start;
+  margin-top: 2rem;
 `;
 
 const StyledTitle = styled.h3`
   font-family: "Cambay", sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
-  color: blue;
+  font-size: 1.1rem;
+  /* color: #212429; */
+  color: #f97b22;
   margin-bottom: 1.5rem;
 
   @media (max-width: 500px) {
@@ -86,6 +88,10 @@ const UnitToggle = styled.div`
     font-family: "Maven Pro", sans-serif;
     font-weight: 400;
     font-size: 0.85rem;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #ccc;
+    }
 
     &.active {
       background-color: #ccc;

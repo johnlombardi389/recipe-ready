@@ -74,13 +74,15 @@ const RecipeModal = ({ recipe, closeModal }) => {
 
         <div className="info">
           <div className="names">
-            <h2>{recipe.details.title} </h2>
-            <span className="author">
-              by{" "}
-              <a href={recipe.details.sourceUrl} target="_blank">
-                {recipe.details.sourceName}
-              </a>
-            </span>
+            <h2>
+              {recipe.details.title}{" "}
+              <span className="author">
+                by{" "}
+                <a href={recipe.details.sourceUrl} target="_blank">
+                  {recipe.details.sourceName}
+                </a>
+              </span>
+            </h2>
           </div>
         </div>
 
@@ -118,8 +120,11 @@ const RecipeModal = ({ recipe, closeModal }) => {
         </div>
       </div>
       <div className="btns">
-        <button onClick={closeModal}>Close</button>
+        <button className="close-btn" onClick={closeModal}>
+          Close
+        </button>
         <button
+          className="add-btn"
           onClick={() => updateShoppingList(recipe.details.missedIngredients)}
           disabled={buttonClicked}
         >
@@ -170,6 +175,8 @@ const StyledModal = styled.div`
         font-family: "Cambay", sans-serif;
         font-size: 1.75rem;
         font-weight: 700;
+        text-align: center;
+        color: #212429;
       }
 
       .author {
@@ -208,10 +215,11 @@ const StyledModal = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
       background-color: #edf1f5;
       border: 1px solid #d3dce8;
+      padding: 0.5rem 0.25rem;
 
       .icons {
         width: 1.5rem;
@@ -233,7 +241,6 @@ const StyledModal = styled.div`
 
     @media (max-width: 1000px) {
       .stats {
-        padding: 0.25rem 0.25rem;
         .icons {
           width: 1rem;
           height: 1rem;
@@ -273,7 +280,7 @@ const StyledModal = styled.div`
       border: none;
       background-color: transparent;
       font-family: "Mukta Vaani", sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: #555;
       transition: color 0.3s;
@@ -303,7 +310,7 @@ const StyledModal = styled.div`
       left: 0;
       width: 100%;
       height: 3px; /* Adjust the thickness of the underline */
-      background-color: #f97b22; /* Color of the underline for the active tab */
+      background-color: #589fdb; /* Color of the underline for the active tab */
       transition: width 0.3s ease-in-out;
     }
   }
@@ -319,12 +326,35 @@ const StyledModal = styled.div`
     flex-wrap: wrap;
     margin-top: 0.5rem;
     button {
-      padding: 0.75rem 1.2rem;
-      margin: 0 1rem 1rem 1rem;
+      margin: 0 2rem;
+      text-decoration: none;
+      padding: 0.25rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-family: "Mukta Vaani", sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s;
       &:disabled {
-        background-color: green;
-        color: black;
+        background-color: #f97b22;
         cursor: not-allowed;
+      }
+    }
+    .close-btn {
+      background-color: #bebebe;
+      font-weight: 400;
+      color: black;
+      &:hover {
+        background-color: #545454;
+      }
+    }
+
+    .add-btn {
+      background-color: #589fdb;
+      font-weight: 600;
+      color: white;
+      &:hover {
+        background-color: #2979bc;
       }
     }
   }

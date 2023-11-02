@@ -141,4 +141,5 @@ const LoadingMessage = styled.p`
   margin-top: 3rem;
   font-family: "Cambay", sans-serif;
   font-weight: 700;
+  color: #212429;
 `;
