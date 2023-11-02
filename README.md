@@ -6,15 +6,12 @@ Recipe Ready is an innovative kitchen assistant app designed to streamline the c
 
 ## Table of Contents
 
-- [Problem](#problem)
 - [My Process](#my-process)
   - [Tech](#tech)
   - [Sample Code](#sample-code)
 - [Back-End](#back-end)
 - [Author](#author)
   - [Credits](#credits)
-
-## Problem
 
 ## My Process
 
