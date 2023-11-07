@@ -68,62 +68,93 @@ const Login = () => {
   };
 
   return (
-    <LoginContainer>
-      {!isLoggedIn ? (
-        <>
-          <SidesContainer>
-            <div className="left-side">
-              <ImageWrapper>
-                <img src={recipebook2} alt="Recipe book and ingredients" />
-              </ImageWrapper>
-            </div>
-            <div className="right-side">
-              <StyledForm onSubmit={handleSubmit}>
-                <FormWrapper>
-                  <div>
-                    <label htmlFor="username">Username</label>
-                    <input
-                      type="text"
-                      id="username"
-                      name="username"
-                      value={credentials.username}
-                      onChange={handleChange}
-                    />
-                  </div>
+    <>
+      <Brand>
+        <h1>Recipe Ready</h1>
+        <p>
+          Effortlessly organize your kitchen, get instant recipes tailored to
+          your ingredients, and cut food waste while elevating your culinary
+          journey
+        </p>
+      </Brand>
+      <LoginContainer>
+        {!isLoggedIn ? (
+          <>
+            <SidesContainer>
+              <div className="left-side">
+                <ImageWrapper>
+                  <img src={recipebook2} alt="Recipe book and ingredients" />
+                </ImageWrapper>
+              </div>
+              <div className="right-side">
+                <StyledForm onSubmit={handleSubmit}>
+                  <FormWrapper>
+                    <div>
+                      <label htmlFor="username">Username</label>
+                      <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        value={credentials.username}
+                        onChange={handleChange}
+                      />
+                    </div>
 
-                  <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      value={credentials.password}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <button type="submit">Log In</button>
-                  <Link className="register" to="/register">
-                    Don't have an account? Sign up
-                  </Link>
-                </FormWrapper>
-              </StyledForm>
-            </div>
-          </SidesContainer>
-        </>
-      ) : (
-        <LogoutWrapper>
-          <h2>Enjoy your meal</h2>
+                    <div>
+                      <label htmlFor="password">Password</label>
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={credentials.password}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <button type="submit">Log In</button>
+                    <Link className="register" to="/register">
+                      Don't have an account? Sign up
+                    </Link>
+                  </FormWrapper>
+                </StyledForm>
+              </div>
+            </SidesContainer>
+          </>
+        ) : (
+          <LogoutWrapper>
+            <h2>Enjoy your meal</h2>
 
-          <button onClick={handleLogout}>Log Out</button>
+            <button onClick={handleLogout}>Log Out</button>
 
-          <img src={dinner} alt="Family Dinner" />
-        </LogoutWrapper>
-      )}
-    </LoginContainer>
+            <img src={dinner} alt="Family Dinner" />
+          </LogoutWrapper>
+        )}
+      </LoginContainer>
+    </>
   );
 };
 
 export default Login;
+
+const Brand = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 1.5rem;
+    color: #212429;
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+  }
+  p {
+    font-size: 1rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding: 1rem;
+    color: #495057;
+  }
+`;
 
 const LoginContainer = styled.div`
   display: flex;
