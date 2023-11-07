@@ -5,6 +5,7 @@ Effortlessly organize your kitchen, get instant recipes tailored to your ingredi
 ## Table of Contents
 
 - [Overview](#overview)
+- [User Guide](#user-guide)
 - [My Process](#my-process)
   - [Tech](#tech)
   - [Sample Code](#sample-code)
@@ -15,6 +16,44 @@ Effortlessly organize your kitchen, get instant recipes tailored to your ingredi
 ## Overview
 
 Recipe Ready is an innovative kitchen assistant app designed to streamline the culinary experience by addressing various kitchen-related challenges. With a focus on ingredient management, the application aids users in efficiently organizing their kitchen supplies, providing real-time suggestions on available recipes based on current ingredients, facilitating the creation of dynamic shopping lists, and enabling users to track the purchase dates of their ingredients. By seamlessly integrating these features, Recipe Ready becomes an indispensable tool for users seeking to optimize their meal planning, reduce food waste, and enhance their cooking experience
+
+## User Guide
+
+1. Account Creation and Login:
+
+- Register a new account and log in to access Recipe Ready's features.
+
+2. Managing Pantry Ingredients:
+
+- Add ingredients available in your kitchen to your pantry within the app.
+
+3. Finding Recipes:
+
+- Click the "Find Recipes" button to instantly discover recipes you can make with your current ingredients.
+
+4. Viewing Recipes:
+
+- Recipes display the number of missing ingredients required for preparation.
+
+5. Accessing Recipe Details:
+
+- Click on a recipe to view the full list of ingredients and step-by-step instructions.
+
+6. Adding Ingredients to Shopping List:
+
+- Each recipe includes an option to automatically add missing ingredients to your shopping list.
+
+7. Customizing Shopping List:
+
+- Modify your shopping list by adding any extra items you want to purchase.
+
+8. Shopping List Management:
+
+- From the shopping list page, delete unwanted items or mark purchased items by clicking the 'Purchased' button.
+
+9. Automating Pantry Updates:
+
+- Upon marking items as purchased, they will be added to your pantry automatically for future reference.
 
 ## My Process
 
