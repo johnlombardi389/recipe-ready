@@ -6,7 +6,7 @@ Effortlessly organize your kitchen, get instant recipes tailored to your ingredi
 
 - [Overview](#overview)
 - [User Guide](#user-guide)
-- [Details](#details)
+- [Project Details](#project-details)
   - [Tech Toolkit](#tech-toolkit)
   - [Sample Code](#sample-code)
 - [Photos](#photos)
