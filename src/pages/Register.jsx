@@ -42,6 +42,14 @@ const Register = () => {
 
   return (
     <>
+      <Brand>
+        <h1>Recipe Ready</h1>
+        <p>
+          Effortlessly organize your kitchen, get instant recipes tailored to
+          your ingredients, and cut food waste while elevating your culinary
+          journey
+        </p>
+      </Brand>
       <RegisterContainer>
         <SidesContainer>
           <div className="left-side">
@@ -99,6 +107,27 @@ const Register = () => {
 };
 
 export default Register;
+
+const Brand = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 1.5rem;
+    color: #212429;
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+  }
+  p {
+    font-size: 1rem;
+    font-family: "Mukta Vaani", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding: 1rem;
+    color: #495057;
+  }
+`;
 
 const RegisterContainer = styled.div`
   display: flex;
@@ -207,5 +236,3 @@ const StyledForm = styled.form`
     }
   }
 `;
-
-// photo https://www.pexels.com/@kevin-malik/
