@@ -6,9 +6,10 @@ Effortlessly organize your kitchen, get instant recipes tailored to your ingredi
 
 - [Overview](#overview)
 - [User Guide](#user-guide)
-- [My Process](#my-process)
-  - [Tech](#tech)
+- [Details](#details)
+  - [Tech Toolkit](#tech-toolkit)
   - [Sample Code](#sample-code)
+- [Photos](#photos)
 - [Back-End](#back-end)
 - [Author](#author)
   - [Credits](#credits)
@@ -55,11 +56,11 @@ Recipe Ready is an innovative kitchen assistant app designed to streamline the c
 
 - Upon marking items as purchased, they will be added to your pantry automatically for future reference.
 
-## My Process
+## Details
 
-### Tech
+### Tech Toolkit
 
-Front-End:
+Front-End Tools:
 
 - React
 - JavaScript
@@ -71,7 +72,7 @@ Front-End:
 - Git
 - Figma
 
-Back-End:
+Back-End Tools:
 
 - Python
 - Django
@@ -84,6 +85,8 @@ Back-End:
 ```javascript
 console.log("Hello");
 ```
+
+## Photos
 
 ## Back-End
 
@@ -100,6 +103,8 @@ John Lombardi
 - [Portfolio](https://johnlombardi389.github.io/portfolio/)
 - [LinkedIn](https://www.linkedin.com/in/johnlombardi389/)
 - [GitHub](https://github.com/johnlombardi389)
+
+---
 
 ### Credits
 
