@@ -18,7 +18,7 @@ const Nav = () => {
       <StyledNav extendNav={extendNav}>
         <NavInner>
           <div className="left-side">
-            <NavLink to={"/"}>
+            <NavLink to={"/recipe-ready"}>
               <MdKitchen className="logo" />
             </NavLink>
           </div>
