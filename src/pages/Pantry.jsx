@@ -78,7 +78,7 @@ const Pantry = () => {
               <p>Today is {formattedDate}</p>
             </div>
             <div className="btns">
-              <Link to={"/recipes"} className="recipe-btn">
+              <Link to={"/recipe-ready/recipes"} className="recipe-btn">
                 Find Recipes
               </Link>
 

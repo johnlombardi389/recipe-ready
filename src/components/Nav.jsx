@@ -24,16 +24,20 @@ const Nav = () => {
           </div>
           <div className="right-side">
             <NavLinks>
-              <StyledNavLink to={"/pantry"}>Pantry</StyledNavLink>
-              <StyledNavLink to={"/recipes"}>Recipes</StyledNavLink>
-              <StyledNavLink to={"/profile"}>Shopping List</StyledNavLink>
+              <StyledNavLink to={"/recipe-ready/pantry"}>Pantry</StyledNavLink>
+              <StyledNavLink to={"/recipe-ready/recipes"}>
+                Recipes
+              </StyledNavLink>
+              <StyledNavLink to={"/recipe-ready/shopping-list"}>
+                Shopping List
+              </StyledNavLink>
               {isLoggedIn ? (
                 <>
-                  <StyledNavLink to={"/"}>Log Out</StyledNavLink>
+                  <StyledNavLink to={"/recipe-ready"}>Log Out</StyledNavLink>
                 </>
               ) : (
                 <>
-                  <StyledNavLink to={"/"}>Log In</StyledNavLink>
+                  <StyledNavLink to={"/recipe-ready"}>Log In</StyledNavLink>
                 </>
               )}
               <Hamburger
@@ -53,7 +57,7 @@ const Nav = () => {
         {extendNav && (
           <NavExtension>
             <StyledExtendNavLink
-              to={"/pantry"}
+              to={"/recipe-ready/pantry"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
@@ -61,7 +65,7 @@ const Nav = () => {
               Pantry
             </StyledExtendNavLink>
             <StyledExtendNavLink
-              to={"/recipes"}
+              to={"/recipe-ready/recipes"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
@@ -69,7 +73,7 @@ const Nav = () => {
               Recipes
             </StyledExtendNavLink>
             <StyledExtendNavLink
-              to={"/profile"}
+              to={"/recipe-ready/shopping-list"}
               onClick={() => {
                 setExtendNav(!extendNav);
               }}
@@ -79,7 +83,7 @@ const Nav = () => {
             {isLoggedIn ? (
               <>
                 <StyledExtendNavLink
-                  to={"/"}
+                  to={"/recipe-ready"}
                   onClick={() => {
                     setExtendNav(!extendNav);
                   }}
@@ -90,7 +94,7 @@ const Nav = () => {
             ) : (
               <>
                 <StyledExtendNavLink
-                  to={"/"}
+                  to={"/recipe-ready"}
                   onClick={() => {
                     setExtendNav(!extendNav);
                   }}

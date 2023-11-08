@@ -33,7 +33,7 @@ const Register = () => {
         localStorage.setItem("refresh_token", refresh);
 
         console.log("Registration successful", response.data);
-        navigate("/");
+        navigate("/recipe-ready");
       })
       .catch((error) => {
         console.error("Error registering user:", error);

@@ -47,7 +47,7 @@ const Login = () => {
             const { id } = userResponse.data;
             localStorage.setItem("user_id", id);
 
-            navigate("/pantry");
+            navigate("/recipe-ready/pantry");
           })
           .catch((error) => {
             console.error("Error getting user information:", error);
@@ -64,7 +64,7 @@ const Login = () => {
     localStorage.removeItem("user_id");
 
     logout();
-    navigate("/");
+    navigate("/recipe-ready");
   };
 
   return (

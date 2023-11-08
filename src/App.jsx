@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "../AuthContext";
 // Style
 import GlobalStyles from "./components/GlobalStyle";
@@ -20,11 +20,11 @@ function App() {
         <GlobalStyles />
         <Nav />
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/pantry" element={<Pantry />} />
-          <Route path="/recipes" element={<Recipes />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/recipe-ready" element={<Login />} />
+          <Route path="/recipe-ready/pantry" element={<Pantry />} />
+          <Route path="/recipe-ready/recipes" element={<Recipes />} />
+          <Route path="/recipe-ready/register" element={<Register />} />
+          <Route path="/recipe-ready/shopping-list" element={<Profile />} />
         </Routes>
       </>
     </AuthProvider>
