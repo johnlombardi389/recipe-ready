@@ -15,7 +15,7 @@ const FirstTime = () => {
           now!
         </p>
 
-        <Link to="/pantry" className="pantry-btn">
+        <Link to="/recipe-ready/pantry" className="pantry-btn">
           Update Your Pantry
         </Link>
 
