@@ -661,7 +661,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       }
     }
   }
-`,k2="/recipe-ready/assets/recipebook-1b064ca4.jpg",S2=()=>w.jsx(w.Fragment,{children:w.jsxs(C2,{children:[w.jsx("h3",{children:"Tell us what you have"}),w.jsx("p",{children:"We can't recommend recipes until we know what is in your kitchen, add some ingredients and then we'll help you see what you can make right now!"}),w.jsx(Xa,{to:"/pantry",className:"pantry-btn",children:"Update Your Pantry"}),w.jsx("img",{src:k2,alt:"Recipe book"})]})}),C2=U.div`
+`,k2="/recipe-ready/assets/recipebook-1b064ca4.jpg",S2=()=>w.jsx(w.Fragment,{children:w.jsxs(C2,{children:[w.jsx("h3",{children:"Tell us what you have"}),w.jsx("p",{children:"We can't recommend recipes until we know what is in your kitchen, add some ingredients and then we'll help you see what you can make right now!"}),w.jsx(Xa,{to:"/recipe-ready/pantry",className:"pantry-btn",children:"Update Your Pantry"}),w.jsx("img",{src:k2,alt:"Recipe book"})]})}),C2=U.div`
   display: flex;
   flex-direction: column;
   align-items: center;
