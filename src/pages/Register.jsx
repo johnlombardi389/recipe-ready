@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
 
     axios
-      .post("http://john389.pythonanywhere.com/api/register/", formData)
+      .post("https://john389.pythonanywhere.com/api/register/", formData)
       .then((response) => {
         // Handle successful registration
         const { access, refresh } = response.data;

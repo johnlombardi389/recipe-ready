@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("http://john389.pythonanywhere.com/api/login/", credentials)
+      .post("https://john389.pythonanywhere.com/api/login/", credentials)
       .then((response) => {
         const { access, refresh } = response.data;
 
@@ -38,7 +38,7 @@ const Login = () => {
         localStorage.setItem("refresh_token", refresh);
 
         axios
-          .get("http://john389.pythonanywhere.com/api/user/", {
+          .get("https://john389.pythonanywhere.com/api/user/", {
             headers: {
               Authorization: `Bearer ${access}`,
             },
