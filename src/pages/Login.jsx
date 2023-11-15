@@ -147,12 +147,13 @@ const Brand = styled.div`
     font-weight: 700;
   }
   p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: "Mukta Vaani", sans-serif;
     font-weight: 400;
     text-align: center;
     padding: 1rem;
     color: #495057;
+    max-width: 1200px;
   }
 `;
 
@@ -166,6 +167,10 @@ const LoginContainer = styled.div`
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
   overflow: hidden;
+
+  @media (max-width: 16800px) {
+    height: 70vh;
+  }
 
   @media (max-width: 700px) {
     max-width: 350px;
