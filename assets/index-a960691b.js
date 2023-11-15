@@ -311,7 +311,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       background-color: #194870;
     }
   }
-`,yn=br.create({baseURL:"http://localhost:8000/api/",headers:{"Content-Type":"application/json"}});yn.interceptors.request.use(e=>{const t=localStorage.getItem("access_token");return t&&(e.headers.Authorization=`Bearer ${t}`),e},e=>Promise.reject(e));const d2=({recipe:e,openRecipe:t})=>{const n=e.missedIngredients.length;return w.jsx(w.Fragment,{children:w.jsxs(p2,{onClick:()=>t(e),children:[e.image&&w.jsx("img",{src:e.image,alt:e.title}),w.jsx("h3",{children:e.title}),w.jsx("div",{className:"details",children:w.jsxs("p",{children:["Ingredients Needed: ",n]})})]})})},p2=U.div`
+`,yn=br.create({baseURL:"http://john389.pythonanywhere.com/api/",headers:{"Content-Type":"application/json"}});yn.interceptors.request.use(e=>{const t=localStorage.getItem("access_token");return t&&(e.headers.Authorization=`Bearer ${t}`),e},e=>Promise.reject(e));const d2=({recipe:e,openRecipe:t})=>{const n=e.missedIngredients.length;return w.jsx(w.Fragment,{children:w.jsxs(p2,{onClick:()=>t(e),children:[e.image&&w.jsx("img",{src:e.image,alt:e.title}),w.jsx("h3",{children:e.title}),w.jsx("div",{className:"details",children:w.jsxs("p",{children:["Ingredients Needed: ",n]})})]})})},p2=U.div`
   background-color: #edf1f5;
   border: 1px solid #d3dce8;
   border-radius: 0.5rem;
