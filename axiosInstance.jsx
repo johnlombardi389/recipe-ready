@@ -1,11 +1,13 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8000/api/",
+  baseURL: "http://john389.pythonanywhere.com/api/",
   headers: {
     "Content-Type": "application/json",
   },
 });
+
+// http://localhost:8000/api/
 
 axiosInstance.interceptors.request.use(
   (config) => {
