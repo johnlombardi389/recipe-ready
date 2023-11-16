@@ -1,4 +1,4 @@
-import { Routes, Route, HashRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "../AuthContext";
 // Style
 import GlobalStyles from "./components/GlobalStyle";
@@ -17,15 +17,13 @@ function App() {
       <>
         <GlobalStyles />
         <Nav />
-        <Router>
-          <Routes>
-            <Route path="/recipe-ready" element={<Login />} />
-            <Route path="/recipe-ready/pantry" element={<Pantry />} />
-            <Route path="/recipe-ready/recipes" element={<Recipes />} />
-            <Route path="/recipe-ready/register" element={<Register />} />
-            <Route path="/recipe-ready/shopping-list" element={<Profile />} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path="/recipe-ready" element={<Login />} />
+          <Route path="/recipe-ready/pantry" element={<Pantry />} />
+          <Route path="/recipe-ready/recipes" element={<Recipes />} />
+          <Route path="/recipe-ready/register" element={<Register />} />
+          <Route path="/recipe-ready/shopping-list" element={<Profile />} />
+        </Routes>
       </>
     </AuthProvider>
   );
