@@ -26,6 +26,7 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 90vw;
+  max-width: 1000px;
   height: 50vh;
   background-color: rgba(0, 0, 0, 0.15);
   margin: 2rem auto;
