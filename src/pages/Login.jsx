@@ -111,7 +111,7 @@ const Login = () => {
                       />
                     </div>
                     <button type="submit">Log In</button>
-                    <Link className="register" to="/register">
+                    <Link className="register" to="/recipe-ready/register">
                       Don't have an account? Sign up
                     </Link>
                   </FormWrapper>

@@ -94,7 +94,7 @@ const Register = () => {
                   />
                 </div>
                 <button type="submit">Sign Up</button>
-                <Link className="register" to="/">
+                <Link className="register" to="/recipe-ready">
                   Already have an account? Log in
                 </Link>
               </FormWrapper>
