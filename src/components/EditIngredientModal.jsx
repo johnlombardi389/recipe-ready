@@ -40,7 +40,7 @@ const EditIngredientModal = ({
       const userToken = getToken();
       const userId = getUserId();
       const response = await axios.put(
-        `http://localhost:8000/api/ingredients/${id}/`,
+        `https://john389.pythonanywhere.com/api/ingredients/${id}/`,
         { name, purchase_date: formattedDate, user: userId },
         {
           headers: {
