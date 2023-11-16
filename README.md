@@ -19,7 +19,9 @@ Effortlessly organize your kitchen, get instant recipes tailored to your ingredi
 
 ## Overview
 
-Recipe Ready is an innovative kitchen assistant app designed to streamline the culinary experience by addressing various kitchen-related challenges. With a focus on ingredient management, the application aids users in efficiently organizing their kitchen supplies, providing real-time suggestions on available recipes based on current ingredients, facilitating the creation of dynamic shopping lists, and enabling users to track the purchase dates of their ingredients. By seamlessly integrating these features, Recipe Ready becomes an indispensable tool for users seeking to optimize their meal planning, reduce food waste, and enhance their cooking experience
+Recipe Ready is an innovative kitchen assistant app designed to streamline the culinary experience by addressing various kitchen-related challenges. With a focus on ingredient management, the application aids users in efficiently organizing their kitchen supplies, providing real-time suggestions on available recipes based on current ingredients, facilitating the creation of dynamic shopping lists, and enabling users to track the purchase dates of their ingredients.
+
+By seamlessly integrating these features, Recipe Ready becomes an indispensable tool for users seeking to optimize their meal planning, reduce food waste, and enhance their cooking experience.
 
 ### Try Recipe Ready
 
@@ -89,9 +91,30 @@ Back-End Tools:
 
 ### Sample Code
 
+#### Recipe Display Section
+
 ```javascript
-console.log("Hello");
+<div>
+  {loading && <LoadingMessage>Loading...</LoadingMessage>}
+
+  <RecipesGrid>
+    {recipes.map((recipe) => (
+      <Recipe key={recipe.id} recipe={recipe} openRecipe={handleRecipeClick} />
+    ))}
+  </RecipesGrid>
+
+  {modalOpen && selectedRecipe && (
+    <RecipeModal
+      recipe={selectedRecipe}
+      closeModal={() => setModalOpen(false)}
+    />
+  )}
+</div>
 ```
+
+This section of code is responsible for displaying the recipes on the webpage.
+
+It uses a modular component structure for clean and easy to read code. Dynamic modal rendering is also used to ensure the modal displays the details when the correct conditions are met.
 
 ## Photos
 
