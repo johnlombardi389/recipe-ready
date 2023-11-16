@@ -125,7 +125,7 @@ const Login = () => {
 
             <button onClick={handleLogout}>Log Out</button>
 
-            <img src={dinner} alt="Family Dinner" />
+            {/* <img src={dinner} alt="Family Dinner" /> */}
           </LogoutWrapper>
         )}
       </LoginContainer>
