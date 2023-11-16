@@ -95,25 +95,47 @@ console.log("Hello");
 
 ## Photos
 
+### Log In
+
 ![Log In](/src/assets/Project1.png)
+
+#### Register Account
 
 ![Register](/src/assets/Project2.png)
 
+#### New Account Pantry
+
 ![New Account Pantry](/src/assets/Project3.png)
+
+#### Add Ingredients
 
 ![Add Ingredients](/src/assets/Project4.png)
 
+#### Pantry View
+
 ![Pantry View](/src/assets/Project5.png)
+
+#### Edit Ingredients
 
 ![Edit Ingredients](/src/assets/Project13.png)
 
+#### Your Recipes
+
 ![Recipes for your Pantry](/src/assets/Project6.png)
+
+#### View Recipe
 
 ![View Recipe](/src/assets/Project7.png)
 
+#### Recipe Ingredients You Need
+
 ![Recipe Ingredients](/src/assets/Project10.png)
 
+#### Recipe Directions
+
 ![Recipe Directions](/src/assets/Project9.png)
+
+#### Your Shopping List
 
 ![Shopping List](/src/assets/Project12.png)
 
