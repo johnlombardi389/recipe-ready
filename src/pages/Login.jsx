@@ -272,6 +272,8 @@ const LogoutWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1000px;
+  max-height: 700px;
 
   h2 {
     font-size: 2rem;
