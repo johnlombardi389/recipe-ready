@@ -163,6 +163,7 @@ const LoginContainer = styled.div`
   justify-content: space-around;
   margin: 2rem auto;
   max-width: 1000px;
+  max-height: 750px;
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
