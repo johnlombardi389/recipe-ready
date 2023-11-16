@@ -2,6 +2,8 @@
 
 Effortlessly organize your kitchen, get instant recipes tailored to your ingredients, and cut food waste while elevating your culinary journey.
 
+![Project Preview Image](/src/assets/Project6.png)
+
 ## Table of Contents
 
 - [Overview](#overview)
