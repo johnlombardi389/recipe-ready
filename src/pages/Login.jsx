@@ -121,7 +121,7 @@ const Login = () => {
           </>
         ) : (
           <LogoutWrapper>
-            <h2>Enjoy your meal</h2>
+            {/* <h2>Enjoy your meal</h2> */}
 
             <button onClick={handleLogout}>Log Out</button>
 
