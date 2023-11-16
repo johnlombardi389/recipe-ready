@@ -95,6 +95,28 @@ console.log("Hello");
 
 ## Photos
 
+![Log In](/src/assets/Project1.png)
+
+![Register](/src/assets/Project2.png)
+
+![New Account Pantry](/src/assets/Project3.png)
+
+![Add Ingredients](/src/assets/Project4.png)
+
+![Pantry View](/src/assets/Project5.png)
+
+![Edit Ingredients](/src/assets/Project13.png)
+
+![Recipes for your Pantry](/src/assets/Project6.png)
+
+![View Recipe](/src/assets/Project7.png)
+
+![Recipe Ingredients](/src/assets/Project10.png)
+
+![Recipe Directions](/src/assets/Project9.png)
+
+![Shopping List](/src/assets/Project12.png)
+
 ## Back-End
 
 Powered by Django and Django Rest Framework, Recipe Ready's backend architecture offers an array of robust features to support a seamless user experience. Leveraging Python's capabilities, the platform manages user accounts, providing secure login and registration functionalities. The application allows users to save ingredients to a personalized virtual pantry, enabling efficient organization and tracking of purchased items.
