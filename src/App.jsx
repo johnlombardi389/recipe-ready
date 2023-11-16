@@ -1,11 +1,9 @@
-import { useState, useEffect, createContext } from "react";
-import { Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter as Router } from "react-router-dom";
 import { AuthProvider } from "../AuthContext";
 // Style
 import GlobalStyles from "./components/GlobalStyle";
 // Components
 import Nav from "./components/Nav";
-import EditIngredientModal from "./components/EditIngredientMOdal";
 // Pages
 import Recipes from "./pages/Recipes";
 import Pantry from "./pages/Pantry";
@@ -19,13 +17,15 @@ function App() {
       <>
         <GlobalStyles />
         <Nav />
-        <Routes>
-          <Route path="/recipe-ready" element={<Login />} />
-          <Route path="/recipe-ready/pantry" element={<Pantry />} />
-          <Route path="/recipe-ready/recipes" element={<Recipes />} />
-          <Route path="/recipe-ready/register" element={<Register />} />
-          <Route path="/recipe-ready/shopping-list" element={<Profile />} />
-        </Routes>
+        <Router>
+          <Routes>
+            <Route path="/recipe-ready" element={<Login />} />
+            <Route path="/recipe-ready/pantry" element={<Pantry />} />
+            <Route path="/recipe-ready/recipes" element={<Recipes />} />
+            <Route path="/recipe-ready/register" element={<Register />} />
+            <Route path="/recipe-ready/shopping-list" element={<Profile />} />
+          </Routes>
+        </Router>
       </>
     </AuthProvider>
   );
