@@ -7,7 +7,7 @@ Effortlessly organize your kitchen, get instant recipes tailored to your ingredi
 ## Table of Contents
 
 - [Overview](#overview)
-  - [Try Recipe Ready](#link)
+  - [Try Recipe Ready](#try-recipe-ready)
 - [User Guide](#user-guide)
 - [Project Details](#project-details)
   - [Tech Toolkit](#tech-toolkit)
