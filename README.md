@@ -32,6 +32,7 @@ By seamlessly integrating these features, Recipe Ready becomes an indispensable 
 1. Account Creation and Login:
 
 - Register a new account and log in to access Recipe Ready's features.
+- If you prefer to jump straight in, log in with the username: test, password: test
 
 2. Managing Pantry Ingredients:
 
